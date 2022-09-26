@@ -1,34 +1,42 @@
 :root {
-    --maincolor: blueviolet;
-    --secondarycolor: white;
-    --accent: rgb(229, 229, 47);
-    
-    --titles: arial;
-    --text: serif;
+  --maincolor: blueviolet;
+  --secondarycolor: white;
+  --accent: rgb(229, 229, 47);
+
+  --titles: arial;
+  --text: serif;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: var(--text);    
+  font-family: var(--text);
+  background-color: grey;
 }
 
-h1,h2,h2,h4,h4,h5,h6 {
-    color: var(--maincolor);
-    font-family: var(--titles);
-    text-align: center;
+h1,
+h2,
+h2,
+h4,
+h4,
+h5,
+h6 {
+  color: var(--maincolor);
+  font-family: var(--titles);
+  text-align: center;
 }
 
-.class {
-    text-align:center;
+.image {
+  text-align: center;
 }
+
 img {
-    padding: 5%;
-    text-align: center;
-    
-
+  padding: 5%;
+  text-align: center;
+  background-color: green;
+  width: 30%;
 }

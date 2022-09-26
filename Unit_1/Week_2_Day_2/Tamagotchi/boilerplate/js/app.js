@@ -48,27 +48,62 @@ tamagotchi.weight // 1
 tamagotchi.description // 'A <lifeStage> tamagotchi named <name> born on <birthday> weighing <weight>'
 tamagotchi.speak() // 'Mesutchi is <some state>'
 */
-const date = new Date()
-const month = date.getUTCMonth()
-const day = date.getUTCDate()
+const date = new Date();
+const month = date.getUTCMonth();
+const day = date.getUTCDate();
 const year = date.getUTCFullYear();
-
+let isAlive = true;
+const trackingTime = setInterval(timePassed, 2000);
+const nameOfPet = window.prompt("What is your pet's name");
 const pet = {
-  name: "Bob",
+  name: nameOfPet,
   weight: 1,
-  age: .1,
+  age: 0,
   birthday: `${month}/${day}/${year}`,
   hungerLevel: 0,
   happinessLevel: 10,
-  attentionLevel: 0,
+  attentionLevel: 10,
   lifeStage: "Baby",
 
   description: function describe() {
-    return (`A ${this.lifeStage} tamagotchi named ${this.name} born on ${this.birthday} weighing ${this.weight}lbs.`)
+    return `A ${this.lifeStage} tamagotchi named ${this.name} born on ${this.birthday} weighing ${this.weight}lbs.`;
+  },
+};
+
+function timePassed() {
+  pet.hungerLevel += 1;
+  pet.attentionLevel -= 1;
+  pet.age += 1;
+  
+  console.log(pet);
+
+  // KO Yoshi - https://www.nicepng.com/png/full/32-323685_images-is-love-wallpaper-and-background-photos-yoshi.png
+  // Sad Yoshi - https://i.pinimg.com/originals/d6/c8/74/d6c874eee7176d367211daf954f0a555.png
+  // Happy Yoshi - https://static.wikia.nocookie.net/smashboards-social/images/3/39/YoshiMarioParty9.png
+  // Gameover - https://dejpknyizje2n.cloudfront.net/marketplace/products/0812fa8272494839a2619fdcd45e9563.png
+  if (pet.hungerLevel > 3 && pet.hungerLevel < 6) {
+    document
+      .querySelector("img")
+      .setAttribute("style", "background-color: yellow");
+    document.querySelector("img").src =
+      "https://i.pinimg.com/originals/d6/c8/74/d6c874eee7176d367211daf954f0a555.png";
+  } else if (pet.hungerLevel >= 6) {
+    document
+      .querySelector("img")
+      .setAttribute("style", "background-color: red");
+    document.querySelector("img").src =
+      "https://www.nicepng.com/png/full/32-323685_images-is-love-wallpaper-and-background-photos-yoshi.png";
+  } else {
+    document
+      .querySelector("img")
+      .setAttribute("style", "background-color: green");
   }
 
-} 
+  if (pet.hungerLevel === 10 || pet.happinessLevel === 0) {
+    clearInterval(trackingTime);
+    document.querySelector("img").src =
+      "https://dejpknyizje2n.cloudfront.net/marketplace/products/0812fa8272494839a2619fdcd45e9563.png";
 
-console.log(pet);
-console.log(pet.description())
-
+    console.log("Game Over");
+  }
+}
