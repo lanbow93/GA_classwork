@@ -74,6 +74,7 @@ function timePassed() {
   pet.hungerLevel += 1;
   pet.attentionLevel -= 1;
   pet.age += .25;
+  pet.happinessLevel -= 1;
   
   console.log(pet);
 
@@ -116,14 +117,17 @@ function feedPet(choice){
     case 1:
       pet.hungerLevel -= 1;
       pet.weight += .5;
+      pet.happinessLevel += 1;
       break;
     case 2:
       pet.hungerLevel -= 2;
       pet.weight += 3;
+      pet.happinessLevel += 1;
       break;
     case 3:
       pet.hungerLevel -= 3;
       pet.weight += 5;
+      pet.happinessLevel +=3;
       break;
     default:
       pet.hungerLevel += 1;
@@ -134,7 +138,7 @@ function feedPet(choice){
 function speak() {
   //hunger happy attention
   needsStr = "";
-  if(pet.hungerLevel < 7 ) {
+  if(pet.hungerLevel > 3 ) {
     needsStr += "I am hungry. ";
   }
   if(pet.happinessLevel < 7) {
@@ -144,4 +148,21 @@ function speak() {
     needsStr += "I am bored";
   }
   return needsStr;
+}
+
+function playPet(num) {
+  switch(num){
+    case 1:
+      pet.attentionLevel += 1;
+      pet.happinessLevel += 1;
+      break;
+    case 2:
+      pet.attentionLevel += 2;
+      pet.happinessLevel += 1;
+      break;
+    case 3:
+      pet.attentionLevel += 3;
+      pet.happinessLevel += 1;
+      break;
+  }
 }
