@@ -73,7 +73,7 @@ const pet = {
 function timePassed() {
   pet.hungerLevel += 1;
   pet.attentionLevel -= 1;
-  pet.age += 1;
+  pet.age += .25;
   
   console.log(pet);
 
@@ -93,10 +93,12 @@ function timePassed() {
       .setAttribute("style", "background-color: red");
     document.querySelector("img").src =
       "https://www.nicepng.com/png/full/32-323685_images-is-love-wallpaper-and-background-photos-yoshi.png";
+      
   } else {
     document
       .querySelector("img")
       .setAttribute("style", "background-color: green");
+      document.querySelector("img").src = "https://static.wikia.nocookie.net/smashboards-social/images/3/39/YoshiMarioParty9.png"
   }
 
   if (pet.hungerLevel === 10 || pet.happinessLevel === 0) {
@@ -106,4 +108,40 @@ function timePassed() {
 
     console.log("Game Over");
   }
+}
+
+function feedPet(choice){
+  //1. Grass 2. Apples 3. Watermelon
+  switch(choice) {
+    case 1:
+      pet.hungerLevel -= 1;
+      pet.weight += .5;
+      break;
+    case 2:
+      pet.hungerLevel -= 2;
+      pet.weight += 3;
+      break;
+    case 3:
+      pet.hungerLevel -= 3;
+      pet.weight += 5;
+      break;
+    default:
+      pet.hungerLevel += 1;
+      break;
+  }
+}
+
+function speak() {
+  //hunger happy attention
+  needsStr = "";
+  if(pet.hungerLevel < 7 ) {
+    needsStr += "I am hungry. ";
+  }
+  if(pet.happinessLevel < 7) {
+    needsStr += "I am unhappy. ";
+  }
+  if(pet.attentionLevel < 7) {
+    needsStr += "I am bored";
+  }
+  return needsStr;
 }
