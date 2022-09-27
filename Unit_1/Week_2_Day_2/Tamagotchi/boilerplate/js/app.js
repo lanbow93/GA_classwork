@@ -76,7 +76,9 @@ function timePassed() {
   // KO Yoshi - https://www.nicepng.com/png/full/32-323685_images-is-love-wallpaper-and-background-photos-yoshi.png
   // Sad Yoshi - https://i.pinimg.com/originals/d6/c8/74/d6c874eee7176d367211daf954f0a555.png
   // Happy Yoshi - https://static.wikia.nocookie.net/smashboards-social/images/3/39/YoshiMarioParty9.png
+  // Leaving Yoshi - https://ssb.wiki.gallery/images/thumb/2/29/Yoshi_SSB4.png/200px-Yoshi_SSB4.png
   // Gameover - https://dejpknyizje2n.cloudfront.net/marketplace/products/0812fa8272494839a2619fdcd45e9563.png
+
   if (pet.hungerLevel > 3 && pet.hungerLevel < 6) {
     document
       .querySelector("img")
@@ -103,6 +105,11 @@ function timePassed() {
       "https://dejpknyizje2n.cloudfront.net/marketplace/products/0812fa8272494839a2619fdcd45e9563.png";
 
     console.log("Game Over");
+  } else if (pet.attentionLevel === 0) {
+    clearInterval(trackingTime);
+    document.querySelector('img').src = "https://ssb.wiki.gallery/images/thumb/2/29/Yoshi_SSB4.png/200px-Yoshi_SSB4.png"
+    document.querySelector("#conversation").innerHTML = "Your lack of attention has caused Yoshi to leave. </br> GAME OVER!"
+    console.log("gameover")
   }
 }
 
