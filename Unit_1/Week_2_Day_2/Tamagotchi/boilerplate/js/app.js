@@ -107,9 +107,32 @@ function timePassed() {
     console.log("Game Over");
   } else if (pet.attentionLevel === 0) {
     clearInterval(trackingTime);
-    document.querySelector('img').src = "https://ssb.wiki.gallery/images/thumb/2/29/Yoshi_SSB4.png/200px-Yoshi_SSB4.png"
-    document.querySelector("#conversation").innerHTML = "Your lack of attention has caused Yoshi to leave. </br> GAME OVER!"
-    console.log("gameover")
+    document.querySelector("img").src =
+      "https://ssb.wiki.gallery/images/thumb/2/29/Yoshi_SSB4.png/200px-Yoshi_SSB4.png";
+    document.querySelector("#conversation").innerHTML =
+      "Your lack of attention has caused Yoshi to leave. </br> GAME OVER!";
+
+    //Removing the option to do anything after game over.
+    if (document.querySelector("#one").innerHTML === "Some Grass") {
+      document.querySelector("#talk").removeEventListener("click", speak);
+      document.querySelector("#one").removeEventListener("click", feedPet);
+      document.querySelector("#two").removeEventListener("click", feedPet);
+      document.querySelector("#three").removeEventListener("click", feedPet);
+      document.querySelector("#home").removeEventListener("click", returnHome);
+    } else if (document.querySelector("#one").innerHTML === "Give Toy") {
+      document.querySelector("#talk").removeEventListener("click", speak);
+      document.querySelector("#one").removeEventListener("click", playPet);
+      document.querySelector("#two").removeEventListener("click", playPet);
+      document.querySelector("#three").removeEventListener("click", playPet);
+      document.querySelector("#home").removeEventListener("click", returnHome);
+    } else {
+      document.querySelector("#talk").removeEventListener("click", speak);
+      document.querySelector("#home").removeEventListener("click", returnHome);
+      document.querySelector("#desc").removeEventListener("click", describe);
+      document.querySelector("#play").removeEventListener("click", toPlay);
+      document.querySelector("#food").removeEventListener("click", toFood);
+    }
+    console.log("gameover");
   }
 }
 
@@ -119,17 +142,17 @@ function feedPet(e) {
   let choice = e.target.id;
   //1. Grass 2. Apples 3. Watermelon
   switch (choice) {
-    case ("one"):
+    case "one":
       pet.hungerLevel -= 1;
       pet.weight += 0.5;
       pet.happinessLevel += 1;
       break;
-    case ("two"):
+    case "two":
       pet.hungerLevel -= 2;
       pet.weight += 3;
       pet.happinessLevel += 1;
       break;
-    case ("three"):
+    case "three":
       pet.hungerLevel -= 3;
       pet.weight += 5;
       pet.happinessLevel += 3;
@@ -208,32 +231,32 @@ function toFood() {
   document.querySelector("#three").addEventListener("click", feedPet);
 }
 function toPlay() {
-    //Removing old event listeners to prepare for food options
+  //Removing old event listeners to prepare for food options
 
-    document.querySelector("#desc").removeEventListener("click", describe);
-    document.querySelector("#play").removeEventListener("click", toPlay);
-    document.querySelector("#food").removeEventListener("click", toFood);
-    //Reassigning button text and IDS to align with food options
-    document.querySelector("#desc").innerHTML = "Give Toy";
-    document.querySelector("#desc").id = "one";
-    document.querySelector("#play").innerHTML = "Go Walking";
-    document.querySelector("#play").id = "two";
-    document.querySelector("#food").innerHTML = "Go swimming";
-    document.querySelector("#food").id = "three";
-    //setting new click listeners to actually run petFeed function
-    document.querySelector("#one").addEventListener("click", playPet);
-    document.querySelector("#two").addEventListener("click", playPet);
-    document.querySelector("#three").addEventListener("click", playPet);
+  document.querySelector("#desc").removeEventListener("click", describe);
+  document.querySelector("#play").removeEventListener("click", toPlay);
+  document.querySelector("#food").removeEventListener("click", toFood);
+  //Reassigning button text and IDS to align with food options
+  document.querySelector("#desc").innerHTML = "Give Toy";
+  document.querySelector("#desc").id = "one";
+  document.querySelector("#play").innerHTML = "Go Walking";
+  document.querySelector("#play").id = "two";
+  document.querySelector("#food").innerHTML = "Go swimming";
+  document.querySelector("#food").id = "three";
+  //setting new click listeners to actually run petFeed function
+  document.querySelector("#one").addEventListener("click", playPet);
+  document.querySelector("#two").addEventListener("click", playPet);
+  document.querySelector("#three").addEventListener("click", playPet);
 }
 
+//What happens wwhen home button is clicked
 function returnHome() {
-
-  if(document.querySelector("#one").innerHTML === "Some Grass") {
-    document.querySelector("#one").removeEventListener("click", feedPet);  
+  if (document.querySelector("#one").innerHTML === "Some Grass") {
+    document.querySelector("#one").removeEventListener("click", feedPet);
     document.querySelector("#two").removeEventListener("click", feedPet);
     document.querySelector("#three").removeEventListener("click", feedPet);
   } else {
-    document.querySelector("#one").removeEventListener("click", playPet);  
+    document.querySelector("#one").removeEventListener("click", playPet);
     document.querySelector("#two").removeEventListener("click", playPet);
     document.querySelector("#three").removeEventListener("click", playPet);
   }
@@ -252,7 +275,6 @@ function returnHome() {
   document.querySelector("#desc").addEventListener("click", describe);
   document.querySelector("#play").addEventListener("click", toPlay);
   document.querySelector("#food").addEventListener("click", toFood);
-
 }
 
 document.querySelector("#talk").addEventListener("click", speak);
