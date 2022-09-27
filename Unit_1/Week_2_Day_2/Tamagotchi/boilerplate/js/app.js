@@ -64,9 +64,6 @@ const pet = {
   attentionLevel: 10,
   lifeStage: "baby",
   
-  description: function describe() {
-    return `A ${this.lifeStage} tamagotchi named ${this.name} born on ${this.birthday} weighing ${this.weight}lbs.`;
-  },
 };
 
 function timePassed() {
@@ -112,6 +109,8 @@ function timePassed() {
   }
 }
 
+//Function to feed pet
+
 function feedPet(choice){
   //1. Grass 2. Apples 3. Watermelon
   switch(choice) {
@@ -136,6 +135,7 @@ function feedPet(choice){
   }
 }
 
+//Function to allow pet to express needs
 function speak() {
   //hunger happy attention
   needsStr = "";
@@ -148,16 +148,17 @@ function speak() {
   if(pet.attentionLevel < 7) {
     needsStr += "I am bored";
   }
-  return needsStr;
+  document.querySelector('#conversation').innerHTML = needsStr;
 }
 
+//Function to play with pet
 function playPet(num) {
   switch(num){
     case 1:
       pet.attentionLevel += 1;
       pet.happinessLevel += 1;
       break;
-    case 2:
+    case 2:Yoshi
       pet.attentionLevel += 2;
       pet.happinessLevel += 1;
       break;
@@ -166,10 +167,29 @@ function playPet(num) {
       pet.happinessLevel += 1;
       break;
   }
+ }
+
+function describe() {
+  document.querySelector('#conversation').innerHTML = `A ${pet.lifeStage} tamagotchi named ${pet.name} born on ${pet.birthday} weighing ${pet.weight}lbs.`;
+};
+
+// <button id="talk">Speak</button>
+// <button id="desc">Pet Info</button>
+// <button id="options">Play Time</button>
+// <button id="food">Feed Pet</button>
+
+function toFood() {
+  document.querySelector('#desc').innerHTML = "Some Grass";
+  document.querySelector('#desc').id = 1
+  document.querySelector('#options').innerHTML = "An Apple";
+  document.querySelector('#options').id = "2"
+  document.querySelector('#food').innerHTML = "A Watermelon";
+  document.querySelector('#food').id = "3"
 }
 
-d~ocument.querySelector('.desc').addEventListener('click', pet.description());
 
-document.querySelector('.talk').addEventListener('click', speak());
+document.querySelector('#desc').addEventListener('click', describe);
 
-document.querySelector('.food').addEventListener('click', feedPet(3));
+document.querySelector('#talk').addEventListener('click', speak);
+
+document.querySelector('#food').addEventListener('click', toFood);
