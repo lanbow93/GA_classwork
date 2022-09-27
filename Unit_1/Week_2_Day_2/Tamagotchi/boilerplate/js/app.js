@@ -56,13 +56,13 @@ const trackingTime = setInterval(timePassed, 2000);
 const nameOfPet = window.prompt("What is your pet's name");
 const pet = {
   name: nameOfPet,
-  weight: 1,
-  age: 0,
-  birthday: `${month}/${day}/${year}`,
   hungerLevel: 0,
   happinessLevel: 10,
   attentionLevel: 10,
   lifeStage: "baby",
+  weight: 1,
+  age: 0,
+  birthday: `${month}/${day}/${year}`,
 };
 
 function timePassed() {
@@ -112,17 +112,17 @@ function feedPet(e) {
   let choice = e.target.id;
   //1. Grass 2. Apples 3. Watermelon
   switch (choice) {
-    case ("grass"):
+    case ("one"):
       pet.hungerLevel -= 1;
       pet.weight += 0.5;
       pet.happinessLevel += 1;
       break;
-    case ("apple"):
+    case ("two"):
       pet.hungerLevel -= 2;
       pet.weight += 3;
       pet.happinessLevel += 1;
       break;
-    case ("watermelon"):
+    case ("three"):
       pet.hungerLevel -= 3;
       pet.weight += 5;
       pet.happinessLevel += 3;
@@ -152,15 +152,15 @@ function speak() {
 //Function to play with pet
 function playPet(num) {
   switch (num) {
-    case "1":
+    case "one":
       pet.attentionLevel += 1;
       pet.happinessLevel += 1;
       break;
-    case "2":
+    case "two":
       pet.attentionLevel += 2;
       pet.happinessLevel += 1;
       break;
-    case "3":
+    case "three":
       pet.attentionLevel += 3;
       pet.happinessLevel += 1;
       break;
@@ -186,19 +186,49 @@ function toFood() {
   document.querySelector("#food").removeEventListener("click", toFood);
   //Reassigning button text and IDS to align with food options
   document.querySelector("#desc").innerHTML = "Some Grass";
-  document.querySelector("#desc").id = "grass";
+  document.querySelector("#desc").id = "one";
   document.querySelector("#play").innerHTML = "An Apple";
-  document.querySelector("#play").id = "apple";
+  document.querySelector("#play").id = "two";
   document.querySelector("#food").innerHTML = "A Watermelon";
-  document.querySelector("#food").id = "watermelon";
+  document.querySelector("#food").id = "three";
   //setting new click listeners to actually run petFeed function
-  document.querySelector("#grass").addEventListener("click", feedPet);
-  document.querySelector("#apple").addEventListener("click", feedPet);
-  document.querySelector("#watermelon").addEventListener("click", feedPet);
+  document.querySelector("#one").addEventListener("click", feedPet);
+  document.querySelector("#two").addEventListener("click", feedPet);
+  document.querySelector("#three").addEventListener("click", feedPet);
 }
 function toPlay() {}
+
+function returnHome() {
+
+  if(document.querySelector("#one").innerHTML === "Some Grass") {
+    document.querySelector("#one").removeEventListener("click", feedPet);  
+    document.querySelector("#two").removeEventListener("click", feedPet);
+    document.querySelector("#three").removeEventListener("click", feedPet);
+  } else {
+    document.querySelector("#one").removeEventListener("click", playPet);  
+    document.querySelector("#two").removeEventListener("click", playPet);
+    document.querySelector("#three").removeEventListener("click", playPet);
+  }
+
+  //Setting innerHTML of button back to their original names
+  document.querySelector("#one").innerHTML = "Pet Info";
+  document.querySelector("#two").innerHTML = "Play Time";
+  document.querySelector("#three").innerHTML = "Feed Pet";
+
+  // Setting original click ids back
+  document.querySelector("#one").id = "desc";
+  document.querySelector("#two").id = "play";
+  document.querySelector("#three").id = "food";
+
+  //Setting original clicklisteners back
+  document.querySelector("#desc").addEventListener("click", describe);
+  document.querySelector("#play").addEventListener("click", toPlay);
+  document.querySelector("#food").addEventListener("click", toFood);
+
+}
 
 document.querySelector("#talk").addEventListener("click", speak);
 document.querySelector("#desc").addEventListener("click", describe);
 document.querySelector("#play").addEventListener("click", toPlay);
 document.querySelector("#food").addEventListener("click", toFood);
+document.querySelector("#home").addEventListener("click", returnHome);
