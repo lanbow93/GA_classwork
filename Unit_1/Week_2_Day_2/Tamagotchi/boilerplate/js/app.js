@@ -37,7 +37,7 @@ eat() {
 
 }
 speak() {
- /* what needs does your tamagotchi have?
+ Care/* what needs does your tamagotchi have?
 }
 play() {
   playing with your tamagotchi should increase happiness, satisfy need for attention, and may decrease weight
@@ -52,7 +52,6 @@ const date = new Date();
 const month = date.getUTCMonth();
 const day = date.getUTCDate();
 const year = date.getUTCFullYear();
-let isAlive = true;
 const trackingTime = setInterval(timePassed, 2000);
 const nameOfPet = window.prompt("What is your pet's name");
 const pet = {
@@ -63,8 +62,8 @@ const pet = {
   hungerLevel: 0,
   happinessLevel: 10,
   attentionLevel: 10,
-  lifeStage: "Baby",
-
+  lifeStage: "baby",
+  
   description: function describe() {
     return `A ${this.lifeStage} tamagotchi named ${this.name} born on ${this.birthday} weighing ${this.weight}lbs.`;
   },
@@ -76,7 +75,9 @@ function timePassed() {
   pet.age += .25;
   pet.happinessLevel -= 1;
   
+  
   console.log(pet);
+  
 
   // KO Yoshi - https://www.nicepng.com/png/full/32-323685_images-is-love-wallpaper-and-background-photos-yoshi.png
   // Sad Yoshi - https://i.pinimg.com/originals/d6/c8/74/d6c874eee7176d367211daf954f0a555.png
@@ -166,3 +167,9 @@ function playPet(num) {
       break;
   }
 }
+
+d~ocument.querySelector('.desc').addEventListener('click', pet.description());
+
+document.querySelector('.talk').addEventListener('click', speak());
+
+document.querySelector('.food').addEventListener('click', feedPet(3));

@@ -38,5 +38,24 @@ img {
   padding: 5%;
   text-align: center;
   background-color: green;
-  width: 30%;
+  width: 20%;
+}
+#conversation {
+  padding: 3%;
+}
+
+.buttons {
+  text-align: center;
+}
+
+button {
+  padding: 2% 3%;
+}
+
+#other {
+  padding: 2% 20%;
+}
+
+div {
+  text-align: center;
 }
