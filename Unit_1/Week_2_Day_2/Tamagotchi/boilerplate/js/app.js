@@ -63,18 +63,15 @@ const pet = {
   happinessLevel: 10,
   attentionLevel: 10,
   lifeStage: "baby",
-  
 };
 
 function timePassed() {
   pet.hungerLevel += 1;
   pet.attentionLevel -= 1;
-  pet.age += .25;
+  pet.age += 0.25;
   pet.happinessLevel -= 1;
-  
-  
+
   console.log(pet);
-  
 
   // KO Yoshi - https://www.nicepng.com/png/full/32-323685_images-is-love-wallpaper-and-background-photos-yoshi.png
   // Sad Yoshi - https://i.pinimg.com/originals/d6/c8/74/d6c874eee7176d367211daf954f0a555.png
@@ -92,12 +89,12 @@ function timePassed() {
       .setAttribute("style", "background-color: red");
     document.querySelector("img").src =
       "https://www.nicepng.com/png/full/32-323685_images-is-love-wallpaper-and-background-photos-yoshi.png";
-      
   } else {
     document
       .querySelector("img")
       .setAttribute("style", "background-color: green");
-      document.querySelector("img").src = "https://static.wikia.nocookie.net/smashboards-social/images/3/39/YoshiMarioParty9.png"
+    document.querySelector("img").src =
+      "https://static.wikia.nocookie.net/smashboards-social/images/3/39/YoshiMarioParty9.png";
   }
 
   if (pet.hungerLevel === 10 || pet.happinessLevel === 0) {
@@ -111,23 +108,24 @@ function timePassed() {
 
 //Function to feed pet
 
-function feedPet(choice){
+function feedPet(e) {
+  let choice = e.target.id;
   //1. Grass 2. Apples 3. Watermelon
-  switch(choice) {
-    case 1:
+  switch (choice) {
+    case ("grass"):
       pet.hungerLevel -= 1;
-      pet.weight += .5;
+      pet.weight += 0.5;
       pet.happinessLevel += 1;
       break;
-    case 2:
+    case ("apple"):
       pet.hungerLevel -= 2;
       pet.weight += 3;
       pet.happinessLevel += 1;
       break;
-    case 3:
+    case ("watermelon"):
       pet.hungerLevel -= 3;
       pet.weight += 5;
-      pet.happinessLevel +=3;
+      pet.happinessLevel += 3;
       break;
     default:
       pet.hungerLevel += 1;
@@ -139,57 +137,68 @@ function feedPet(choice){
 function speak() {
   //hunger happy attention
   needsStr = "";
-  if(pet.hungerLevel > 3 ) {
+  if (pet.hungerLevel > 3) {
     needsStr += "I am hungry. ";
   }
-  if(pet.happinessLevel < 7) {
+  if (pet.happinessLevel < 7) {
     needsStr += "I am unhappy. ";
   }
-  if(pet.attentionLevel < 7) {
+  if (pet.attentionLevel < 7) {
     needsStr += "I am bored";
   }
-  document.querySelector('#conversation').innerHTML = needsStr;
+  document.querySelector("#conversation").innerHTML = needsStr;
 }
 
 //Function to play with pet
 function playPet(num) {
-  switch(num){
-    case 1:
+  switch (num) {
+    case "1":
       pet.attentionLevel += 1;
       pet.happinessLevel += 1;
       break;
-    case 2:Yoshi
+    case "2":
       pet.attentionLevel += 2;
       pet.happinessLevel += 1;
       break;
-    case 3:
+    case "3":
       pet.attentionLevel += 3;
       pet.happinessLevel += 1;
       break;
   }
- }
+}
 
 function describe() {
-  document.querySelector('#conversation').innerHTML = `A ${pet.lifeStage} tamagotchi named ${pet.name} born on ${pet.birthday} weighing ${pet.weight}lbs.`;
-};
+  document.querySelector(
+    "#conversation"
+  ).innerHTML = `A ${pet.lifeStage} tamagotchi named ${pet.name} born on ${pet.birthday} weighing ${pet.weight}lbs.`;
+}
 
 // <button id="talk">Speak</button>
 // <button id="desc">Pet Info</button>
-// <button id="options">Play Time</button>
+// <button id="play">Play Time</button>
 // <button id="food">Feed Pet</button>
 
 function toFood() {
-  document.querySelector('#desc').innerHTML = "Some Grass";
-  document.querySelector('#desc').id = 1
-  document.querySelector('#options').innerHTML = "An Apple";
-  document.querySelector('#options').id = "2"
-  document.querySelector('#food').innerHTML = "A Watermelon";
-  document.querySelector('#food').id = "3"
+  //Removing old event listeners to prepare for food options
+
+  document.querySelector("#desc").removeEventListener("click", describe);
+  document.querySelector("#play").removeEventListener("click", toPlay);
+  document.querySelector("#food").removeEventListener("click", toFood);
+  //Reassigning button text and IDS to align with food options
+  document.querySelector("#desc").innerHTML = "Some Grass";
+  document.querySelector("#desc").id = "grass";
+  document.querySelector("#play").innerHTML = "An Apple";
+  document.querySelector("#play").id = "apple";
+  document.querySelector("#food").innerHTML = "A Watermelon";
+  document.querySelector("#food").id = "watermelon";
+  //setting new click listeners to actually run petFeed function
+  document.querySelector("#grass").addEventListener("click", feedPet);
+  document.querySelector("#apple").addEventListener("click", feedPet);
+  document.querySelector("#watermelon").addEventListener("click", feedPet);
 }
+function toPlay() {}
 
-
-document.querySelector('#desc').addEventListener('click', describe);
-
-document.querySelector('#talk').addEventListener('click', speak);
-
-document.querySelector('#food').addEventListener('click', toFood);
+document.querySelector("#talk").addEventListener("click", speak);
+document.querySelector("#desc").addEventListener("click", describe);
+document.querySelector("#play").addEventListener("click", toPlay);
+document.querySelector("#food").addEventListener("click", toFood);
