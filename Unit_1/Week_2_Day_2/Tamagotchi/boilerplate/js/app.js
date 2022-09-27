@@ -157,19 +157,23 @@ function speak() {
 }
 
 //Function to play with pet
-function playPet(num) {
-  switch (num) {
+function playPet(e) {
+  let choice = e.target.id;
+  switch (choice) {
     case "one":
       pet.attentionLevel += 1;
       pet.happinessLevel += 1;
+      pet.weight -= 1;
       break;
     case "two":
       pet.attentionLevel += 2;
       pet.happinessLevel += 1;
+      pet.weight -= 3;
       break;
     case "three":
       pet.attentionLevel += 3;
       pet.happinessLevel += 1;
+      pet.weight -= 5;
       break;
   }
 }
@@ -203,7 +207,24 @@ function toFood() {
   document.querySelector("#two").addEventListener("click", feedPet);
   document.querySelector("#three").addEventListener("click", feedPet);
 }
-function toPlay() {}
+function toPlay() {
+    //Removing old event listeners to prepare for food options
+
+    document.querySelector("#desc").removeEventListener("click", describe);
+    document.querySelector("#play").removeEventListener("click", toPlay);
+    document.querySelector("#food").removeEventListener("click", toFood);
+    //Reassigning button text and IDS to align with food options
+    document.querySelector("#desc").innerHTML = "Give Toy";
+    document.querySelector("#desc").id = "one";
+    document.querySelector("#play").innerHTML = "Go Walking";
+    document.querySelector("#play").id = "two";
+    document.querySelector("#food").innerHTML = "Go swimming";
+    document.querySelector("#food").id = "three";
+    //setting new click listeners to actually run petFeed function
+    document.querySelector("#one").addEventListener("click", playPet);
+    document.querySelector("#two").addEventListener("click", playPet);
+    document.querySelector("#three").addEventListener("click", playPet);
+}
 
 function returnHome() {
 
