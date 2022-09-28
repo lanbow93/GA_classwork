@@ -1,15 +1,16 @@
 // Write a function called printGreeting with a parameter 'name' that returns a greeting with the argument interpolated into the greeting.
 
 function printGreeting(name) {
-  console.log(`Hey ${name}, how are you doing today?`);
+  return `Hey ${name}, how are you doing today?`;
 }
-printGreeting("Lance");
+console.log(printGreeting("Slimer"));
 
 // Write a function reverseWordOrder that accepts a single argument, a string. The function should return a string with the order of the words reversed. Don't worry about punctuation.
 
 function reverseWordOrder(str) {
   return str.split(" ").reverse().join(" ");
 }
+console.log(reverseWordOrder("Ishmael me Call"));
 
 /*
 Write a function called calculate.
@@ -34,7 +35,8 @@ function calculate(num1, num2, str) {
       return num1 ** num2;
   }
 }
-
+console.log("The value of calculate: ", calculate(4, 3, "sub"));
+console.log("The value of calculate: ", calculate(4, 3, "exp"));
 //Write a function printConsecutives that can take an array of any length, and print groups of three numbers where three consecutive numbers increase by 1.
 
 const printConsecutives = function (someArray) {
@@ -47,22 +49,25 @@ const printConsecutives = function (someArray) {
     }
   }
 };
+printConsecutives([1, 2, 3, 9, 8, 0, 44, 45, 46, 2, 9]);
+printConsecutives([0, 0, 0, -3, -2, -1, 0, 1, 2, 3]);
 
 //Write a function letterReverse that accepts a single argument, a string. The function should maintain the order of words in the string but reverse the letters in each word. Don't worry about punctuation.
 
 const letterReverse = (str) => {
-  str
+  return str
     .split(" ")
-    .map((element) => element.split("").reverse().join(" "))
-    .join("  ");
-}
+    .map((element) => element.split("").reverse().join(""))
+    .join(" ");
+};
+console.log(letterReverse("Luke I am your father"));
 
-const whoIsTheOwner = (name) => {
-    return (item) => {
-        console.log(`${name} is the owner of ${item}`)
-    }
-}
+// const whoIsTheOwner = (name) => {
+//   return (item) => {
+//     console.log(`${name} is the owner of ${item}`);
+//   };
+// };
 
-const theReturnedFunction = whoIsTheOwner("Alex")
-console.log(theReturnedFunction())
-theReturnedFunction("Many Cardigans")
+// const theReturnedFunction = whoIsTheOwner("Alex");
+// console.log(theReturnedFunction());
+// theReturnedFunction("Many Cardigans");
