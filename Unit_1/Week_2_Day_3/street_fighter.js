@@ -32,7 +32,7 @@ const attack = (fighterOne, fighterTwo) => {
     console.log(fighterOne.name);
     return fighterOne.name;
   } else {
-    attack(fighterTwo, fighterOne);
+    return attack(fighterTwo, fighterOne);
   }
 };
 
