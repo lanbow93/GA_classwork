@@ -6,9 +6,14 @@ const arr = [1,2,3,4,];
 
 const Lance = {
     name: "Lance B",
-    age: 2022 - 1993,
-    isTall: true,
+    favoriteHobby: "coding",
+    isFun: true,
+
+    myGreeting() {
+        console.log(`${this.name} says hello`);
+    },
 }
+Lance.myGreeting();
 
 const Sam = {
     name: "Sam",
@@ -56,3 +61,12 @@ function countStrings(arr){
 }
 
 console.log(countStrings(["dog", "dog", "cat"]))
+
+// Adding keys after object was created
+
+const you = {}
+
+you.name = "Alex Merced"
+you.age = 37
+
+console.log(you)
