@@ -2,26 +2,35 @@
 // Inheritance: being able extend constructs to add functionality
 // Polymorphism: The idea that one construct can be used in many ways
 
-//define a new class
+// Defines a new class (a Class is a blueprint to make an object)
 class Animal {
-    //Define the constructor function to define object properties
+    // Defines the 'constructor' (what every object you 'build' based on this class(blueprint)
+    // All animals have: ears, legs, and a sound they make
     constructor(sound, ears, legs) {
-        this.sound = sound;
+        // Setting "this" specific instance of a object to the ones passed when calling this class (kinda like a function)
         this.ears = ears;
         this.legs = legs;
+        this.sound = sound;
     }
-
+    // Puts a function into the blueprint(class) 
     makeSound() {
+        //Prints whatever is logged in "this" specific object 
         console.log(this.sound)
     }
 }
 
-// Use polumorphism to use the class to create different things
+// Use 'polymorphism' to use the class(blueprint) to create new objects
+// variableName = new ClassName(argument1, argument2, argument3) 
 const dog = new Animal("bark", 2, 4);
 const pig = new Animal("oink", 2, 4);
 const cow = new Animal("moo", 2, 4);
+// Amount of arguments depends on how many you put in the constructor above
 
+
+// Should print out each object, based on the class(blueprint)
 console.log(dog, pig, cow);
+
+// Should make the sound for that specific animal
 dog.makeSound();
 pig.makeSound();
 cow.makeSound();
@@ -29,22 +38,22 @@ cow.makeSound();
 // Making a pig class that INHERITS from animal (Inheritance)
 class Pig extends Animal {
     constructor(name) {
-        //invoking parent constructor with set values 
+        // Invoking parent constructor with set values 
         super("oink", 2, 4);
         this.name = name;
     }
-    //New method
+    // New method
     rollInMud() {
         console.log(`${this.name} rolls in mud and says ${this.sound}!`);
     }
 
-    //Overridden method
+    // Overridden method
     makeSound() {
         console.log(`${this.name} says ${this.sound}`);
     }
 }
 
-//Instantiate Instance of the new Pig Class
+// Instantiate Instance of the new Pig Class
 const wilbur = new Pig("Wilbur")
 
 console.log(wilbur);
@@ -95,3 +104,4 @@ bessie.grazeInField();
 
 lassie.dance();
 lassie.makeSound(5);
+

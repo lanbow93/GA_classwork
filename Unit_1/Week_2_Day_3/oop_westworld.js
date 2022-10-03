@@ -1,6 +1,6 @@
 console.log("The Maze");
 
-let host = {
+const host = {
     name: "Dorothy",
     occupation: "Farm Girl",
     saysSpecs() {
@@ -44,14 +44,14 @@ const occupations = [
 "Song writer", "Librarian", "Landscape gardener"
    ]; //14
 
-let hostArray = [];
+const hostArray = [];
 
 for (let i = 0; i < 100; i += 1) {
-    let randomName = names[(Math.floor(Math.random() * 20))];
-    let randomJob =  occupations[(Math.floor(Math.random() * 14))];
-    hostArray.push(new BasicHost(randomName,randomJob));
+    let randomName = names[Math.floor(Math.random() * names.length)]
+    let randomJob =  occupations[(Math.floor(Math.random() * occupations.length))];
+    hostArray.push(new BasicHost(randomName, randomJob));
 }
 
 console.log(hostArray);
-hostArray[55].saySpecs()
+
 
