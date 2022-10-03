@@ -66,7 +66,10 @@ topMenuEl.addEventListener("click", function (event) {
   if (tagChecker !== "a") {
     return;
   }
-  console.log(event.target);
+  if(event.target.innerHTML === "about") {
+    document.querySelector("h1").innerText = "<h1>about</h1>";
+  }
+
   if (event.target.className === "active") {
     event.target.classList.remove("active");
     showingSubMenu = false;
@@ -98,6 +101,8 @@ topMenuEl.addEventListener("click", function (event) {
     subMenuEl.style.top = "0";
   }
 
+  
+
 }); // End of click event listener function
 
 function buildSubMenu(sublinkArray){
@@ -109,13 +114,24 @@ function buildSubMenu(sublinkArray){
     subMenuEl.appendChild(newLink);
   });
 }
-/*
-Code the buildSubMenufunction so that it:
 
-Clears the contents of subMenuEl.
-Iterates over the subLinksarray passed as an argument; and for each "link" object:
 
-Create an <a>element.
-On the new element, add an hrefattribute with its value set to the hrefproperty of the "link" object.
-Set the new element's content to the value of the textproperty of the "link" object.
-Append the new element to the subMenuElelement.*/
+
+
+subMenuEl.addEventListener("click", function(event) {
+  preventDefault();
+  let tagChecker = event.target.localName;
+  if (tagChecker !== "a") {
+    return;
+  }
+  console.log(event.target);
+  showingSubMenu = false;
+  subMenuEl.style.top = "0";
+
+  const barLinks = topMenuEl.querySelectorAll("a");
+  for (let barlink of barLinks) {
+    barlink.classList.remove("active");
+  }
+
+  document.querySelector("h1").innerHTML = `${event.target.text}`
+});
