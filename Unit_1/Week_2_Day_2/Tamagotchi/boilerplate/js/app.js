@@ -48,10 +48,11 @@ tamagotchi.weight // 1
 tamagotchi.description // 'A <lifeStage> tamagotchi named <name> born on <birthday> weighing <weight>'
 tamagotchi.speak() // 'Mesutchi is <some state>'
 */
-const date = new Date();
-const month = date.getUTCMonth();
-const day = date.getUTCDate();
-const year = date.getUTCFullYear();
+let time = new Date()
+let month = time.getMonth() + 1;
+let day = time.getDate();
+let year = time.getFullYear();
+
 const trackingTime = setInterval(timePassed, 500);
 const timeCount = setInterval(timeMarker, 2000);
 const nameOfPet = window.prompt("What is your pet's name");
@@ -60,7 +61,7 @@ const pet = {
   hungerLevel: 0,
   happinessLevel: 10,
   attentionLevel: 10,
-  lifeStage: "baby",
+  lifeStage: "baby",  // Baby 0-3, Child 4-12 , Teen 13-19 , Adult 20-59, Senior 60+
   weight: 1,
   age: 0,
   birthday: `${month}/${day}/${year}`,
