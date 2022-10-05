@@ -21,13 +21,7 @@ body {
   
 }
 
-h1,
-h2,
-h2,
-h4,
-h4,
-h5,
-h6 {
+h1, h2 {
   color: var(--maincolor);
   font-family: var(--titles);
   text-align: center;
@@ -43,6 +37,7 @@ img {
   text-align: center;
   background-color: green;
   width: 20%;
+  
 }
 #conversation {
   padding: 3%;
@@ -50,20 +45,24 @@ img {
 
 .buttons {
   text-align: center;
-  
 }
 
 button {
   padding: 2% 3%;
   font-family: 'Ceviche One', cursive;
   font-size: larger;
+}
 
+.food {
+  display: none;
+}
+
+.play {
+  display: none;
 }
 
 #home {
   padding: 2% 20%;
 }
 
-div {
-  text-align: center;
-}
+
