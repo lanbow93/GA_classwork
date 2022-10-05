@@ -36,23 +36,35 @@ const pet = {
   birthday: `${month}/${day}/${year}`,
 };
 
-// Morning Noon Evening Night
+// Made to change day counter and background of counter
 function newDay() {
   let timeOfDay = "";
+  let spanColor = "";
+  const daySpan = document.querySelector("span");
   switch ((pet.age * 2) % 1){
     case (0):
       timeOfDay = "Morning";
+      spanColor = "yellow";
       break;
     case (.25):
       timeOfDay = "Noon";
+      spanColor = "orange";
       break;
     case (.50):
       timeOfDay = "Evening";
+      spanColor = "blue"
       break;
     case (.75):
       timeOfDay = "Night";
+      spanColor = "black";
+      break;
+    default:
+      timeOfDay = "Twilight Zone";
+      spanColor = "white";
+      break;
   }
-  document.querySelector("span").textContent = `Day ${Math.floor(pet.age * 2)} ~|~ ${timeOfDay}`;
+  daySpan.textContent = `Day ${Math.floor(pet.age * 2) + 1} ~|~ ${timeOfDay}`;
+  daySpan.style.backgroundColor = spanColor;
 }
 
 // Baby 0-3, Child 4-12 , Teen 13-19 , Adult 20-59, Senior 60+
