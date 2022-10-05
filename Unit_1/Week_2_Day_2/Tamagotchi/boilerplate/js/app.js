@@ -69,6 +69,17 @@ function newDay() {
 
 // Baby 0-3, Child 4-12 , Teen 13-19 , Adult 20-59, Senior 60+
 function updateLifeStage(){
+  if (pet.age >= 60) {
+    pet.lifeStage = "senior";
+  } else if (pet.age >= 20) {
+    pet.lifeStage = "adult";
+  } else if (pet.age >= 13) {
+    pet.lifeStage = "teen";
+  } else if (pet.age >= 4) {
+    pet.lifeStage = "child";
+  } else {
+    pet.lifeStage = "baby";
+  }
 }
 
 const trackingTime = setInterval(timePassed, 500);
@@ -79,6 +90,7 @@ function timeMarker() {
   pet.attentionLevel -= 1;
   pet.age += .125;
   pet.happinessLevel -= 1;
+  updateLifeStage();
   newDay();
 
   console.log(pet);
@@ -237,7 +249,7 @@ document.getElementById("home").addEventListener("click", function(){
 document.querySelector("#info").addEventListener("click", function(){
   document.querySelector(
     "#conversation"
-  ).innerHTML = `A ${pet.lifeStage} tamagotchi named ${pet.name} born on ${pet.birthday} weighing ${pet.weight}lbs.`;
+  ).innerHTML = `A ${pet.lifeStage} tamagotchi named ${pet.name} born on ${pet.birthday} weighing ${pet.weight}lbs. They are currently ${pet.age} virtuals old. `;
 })
 
 document.querySelector("#toy").addEventListener("click", playPet);
