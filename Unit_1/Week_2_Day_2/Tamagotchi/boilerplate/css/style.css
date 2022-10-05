@@ -39,6 +39,15 @@ img {
   width: 20%;
   
 }
+.day {
+  margin-top: 2%;
+  margin-bottom: -1%;
+}
+span {
+  background-color: black;
+  padding: 1%;
+  
+}
 #conversation {
   padding: 3%;
 }

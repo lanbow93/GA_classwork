@@ -1,25 +1,32 @@
 console.log("Hello World");
 /*
-
 Specifications
 Create a repo for your tamagotchi pet
 Create a Class (JS Class, look at your notes if your forget) for your tamagotchi
 Instantiate your Tamagotchi
 Display a character of your choice on the screen to represent your pet
 Display the following metrics for your pet:
-
 */
+
+// Urls for image references
+const fallenYoshi = "https://www.nicepng.com/png/full/32-323685_images-is-love-wallpaper-and-background-photos-yoshi.png";
+const fallenAlt = "Photo of pet fallen down";
+const sadYoshi = "https://i.pinimg.com/originals/d6/c8/74/d6c874eee7176d367211daf954f0a555.png";
+const sadAlt = "Photo of pet looking sad";
+const happyYoshi = "https://static.wikia.nocookie.net/smashboards-social/images/3/39/YoshiMarioParty9.png";
+const happyAlt = "Photo of pet looking happy";
+const leavingYoshi = "https://ssb.wiki.gallery/images/thumb/2/29/Yoshi_SSB4.png/200px-Yoshi_SSB4.png";
+const leavingAlt = "Photo of pet leaving"
+const gameover = "https://dejpknyizje2n.cloudfront.net/marketplace/products/0812fa8272494839a2619fdcd45e9563.png";
+const gameoverAlt = "Photo of skull and crossbones. The game over screen."
+
 let time = new Date()
 let month = time.getMonth() + 1;
 let day = time.getDate();
 let year = time.getFullYear();
 
-const trackingTime = setInterval(timePassed, 500);
-const timeCount = setInterval(timeMarker, 2000);
-const nameOfPet = window.prompt("What is your pet's name");
-
 const pet = {
-  name: nameOfPet,
+  name: window.prompt("What is your pet's name"),
   hungerLevel: 0,
   attentionLevel: 10,
   happinessLevel: 10,
@@ -29,6 +36,9 @@ const pet = {
   birthday: `${month}/${day}/${year}`,
 };
 
+const trackingTime = setInterval(timePassed, 500);
+const timeCount = setInterval(timeMarker, 2000);
+
 function timeMarker() {
   pet.hungerLevel += 1;
   pet.attentionLevel -= 1;
@@ -37,11 +47,16 @@ function timeMarker() {
 
   console.log(pet);
 }
-// KO Yoshi - https://www.nicepng.com/png/full/32-323685_images-is-love-wallpaper-and-background-photos-yoshi.png
-// Sad Yoshi - https://i.pinimg.com/originals/d6/c8/74/d6c874eee7176d367211daf954f0a555.png
-// Happy Yoshi - https://static.wikia.nocookie.net/smashboards-social/images/3/39/YoshiMarioParty9.png
-// Leaving Yoshi - https://ssb.wiki.gallery/images/thumb/2/29/Yoshi_SSB4.png/200px-Yoshi_SSB4.png
-// Gameover - https://dejpknyizje2n.cloudfront.net/marketplace/products/0812fa8272494839a2619fdcd45e9563.png
+
+
+
+// Function to remove all buttons from screen
+function buttonElimination() {
+  buttons = document.querySelectorAll("button");
+  for (button of buttons) {
+    button.style.display = "none";
+  }
+}
 
 function timePassed() {
   
@@ -49,81 +64,38 @@ function timePassed() {
     document
       .querySelector("img")
       .setAttribute("style", "background-color: yellow");
-    document.querySelector("img").src =
-      "https://i.pinimg.com/originals/d6/c8/74/d6c874eee7176d367211daf954f0a555.png";
+    document.querySelector("img").src = sadYoshi;
+    document.querySelector("img").alt = sadAlt;
   } else if (pet.hungerLevel >= 6 || pet.attentionLevel <= 4 || pet.happinessLevel <= 4 ) {
     document
       .querySelector("img")
       .setAttribute("style", "background-color: red");
-    document.querySelector("img").src =
-      "https://www.nicepng.com/png/full/32-323685_images-is-love-wallpaper-and-background-photos-yoshi.png";
+    document.querySelector("img").src = fallenYoshi;
+    document.querySelector("img").alt = fallenAlt;
   } else {
     document
       .querySelector("img")
       .setAttribute("style", "background-color: green");
-    document.querySelector("img").src =
-      "https://static.wikia.nocookie.net/smashboards-social/images/3/39/YoshiMarioParty9.png";
+    document.querySelector("img").src = happyYoshi
+    document.querySelector("img").alt = happyAlt;
   }
 
   if (pet.hungerLevel === 10) {
     clearInterval(trackingTime);
     clearInterval(timeCount);
-    document.querySelector("img").src =
-      "https://dejpknyizje2n.cloudfront.net/marketplace/products/0812fa8272494839a2619fdcd45e9563.png";
+    document.querySelector("img").src = gameover;
 
-      document.querySelector("#conversation").innerHTML =
-      `Your neglect has caused ${pet.name} to starve. </br> GAME OVER!`;
-      if (document.querySelector("#one").innerHTML === "Some Grass") {
-        document.querySelector("#talk").removeEventListener("click", speak);
-        document.querySelector("#one").removeEventListener("click", feedPet);
-        document.querySelector("#two").removeEventListener("click", feedPet);
-        document.querySelector("#three").removeEventListener("click", feedPet);
-        document.querySelector("#home").removeEventListener("click", returnHome);
-      } else if (document.querySelector("#one").innerHTML === "Give Toy") {
-        document.querySelector("#talk").removeEventListener("click", speak);
-        document.querySelector("#one").removeEventListener("click", playPet);
-        document.querySelector("#two").removeEventListener("click", playPet);
-        document.querySelector("#three").removeEventListener("click", playPet);
-        document.querySelector("#home").removeEventListener("click", returnHome);
-      } else {
-        document.querySelector("#talk").removeEventListener("click", speak);
-        document.querySelector("#home").removeEventListener("click", returnHome);
-        document.querySelector("#one").removeEventListener("click", describe);
-        document.querySelector("#two").removeEventListener("click", toPlay);
-        document.querySelector("#three").removeEventListener("click", toFood);
-      }
-
-    console.log("Game Over");
-  } else if (pet.attentionLevel === 0 || pet.happinessLevel === 0) {
+      document.querySelector("#conversation").innerHTML = `Your neglect has caused ${pet.name} to starve. </br> GAME OVER!`;
+      buttonElimination();
+      console.log("Game Over");
+    } else if (pet.attentionLevel === 0 || pet.happinessLevel === 0) {
     clearInterval(trackingTime);
     clearInterval(timeCount);
-    document.querySelector("img").src =
-      "https://ssb.wiki.gallery/images/thumb/2/29/Yoshi_SSB4.png/200px-Yoshi_SSB4.png";
-    document.querySelector("img").alt =
-      "Photo of pet leaving";
+    document.querySelector("img").src = leavingYoshi;
+    document.querySelector("img").alt = leavingAlt;
     document.querySelector("#conversation").innerHTML =
-      `Your lack of attention has caused ${pet.name} to leave. </br> GAME OVER!`;
-
-    //Removing the option to do anything after game over.
-    if (document.querySelector("#one").innerHTML === "Some Grass") {
-      document.querySelector("#talk").removeEventListener("click", speak);
-      document.querySelector("#one").removeEventListener("click", feedPet);
-      document.querySelector("#two").removeEventListener("click", feedPet);
-      document.querySelector("#three").removeEventListener("click", feedPet);
-      document.querySelector("#home").removeEventListener("click", returnHome);
-    } else if (document.querySelector("#one").innerHTML === "Give Toy") {
-      document.querySelector("#talk").removeEventListener("click", speak);
-      document.querySelector("#one").removeEventListener("click", playPet);
-      document.querySelector("#two").removeEventListener("click", playPet);
-      document.querySelector("#three").removeEventListener("click", playPet);
-      document.querySelector("#home").removeEventListener("click", returnHome);
-    } else {
-      document.querySelector("#talk").removeEventListener("click", speak);
-      document.querySelector("#home").removeEventListener("click", returnHome);
-      document.querySelector("#one").removeEventListener("click", describe);
-      document.querySelector("#two").removeEventListener("click", toPlay);
-      document.querySelector("#three").removeEventListener("click", toFood);
-    }
+      `Your lack of attention and care has caused ${pet.name} to leave. </br> GAME OVER!`;
+    buttonElimination();
     console.log("gameover");
   }
 }
@@ -136,7 +108,7 @@ function feedPet(e) {
     case "grass":
       pet.hungerLevel -= 1;
       pet.weight += 0.5;
-      pet.happinessLevel += 1;
+      pet.happinessLevel -= 1;
       break;
     case "apple":
       pet.hungerLevel -= 2;
@@ -240,7 +212,3 @@ document.querySelector("#swim").addEventListener("click", playPet);
 document.querySelector("#grass").addEventListener("click", feedPet);
 document.querySelector("#apple").addEventListener("click", feedPet);
 document.querySelector("#watermelon").addEventListener("click", feedPet);
-
-
-
-
