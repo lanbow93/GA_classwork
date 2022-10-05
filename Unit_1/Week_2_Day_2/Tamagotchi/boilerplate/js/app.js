@@ -36,14 +36,38 @@ const pet = {
   birthday: `${month}/${day}/${year}`,
 };
 
+// Morning Noon Evening Night
+function newDay() {
+  let timeOfDay = "";
+  switch ((pet.age * 2) % 1){
+    case (0):
+      timeOfDay = "Morning";
+      break;
+    case (.25):
+      timeOfDay = "Noon";
+      break;
+    case (.50):
+      timeOfDay = "Evening";
+      break;
+    case (.75):
+      timeOfDay = "Night";
+  }
+  document.querySelector("span").textContent = `Day ${Math.floor(pet.age * 2)} ~|~ ${timeOfDay}`;
+}
+
+// Baby 0-3, Child 4-12 , Teen 13-19 , Adult 20-59, Senior 60+
+function updateLifeStage(){
+}
+
 const trackingTime = setInterval(timePassed, 500);
 const timeCount = setInterval(timeMarker, 2000);
 
 function timeMarker() {
   pet.hungerLevel += 1;
   pet.attentionLevel -= 1;
-  pet.age += 0.25;
+  pet.age += .125;
   pet.happinessLevel -= 1;
+  newDay();
 
   console.log(pet);
 }
@@ -59,7 +83,6 @@ function buttonElimination() {
 }
 
 function timePassed() {
-  
   if ((pet.hungerLevel > 3 && pet.hungerLevel < 6) || (pet.attentionLevel < 7 && pet.attentionLevel > 4) || (pet.happinessLevel < 7 && pet.happinessLevel > 4) ) {
     document
       .querySelector("img")
