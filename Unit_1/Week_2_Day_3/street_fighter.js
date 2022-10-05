@@ -1,3 +1,5 @@
+randomsAttack = 
+
 class Fighter {
   constructor(name) {
     this.name = name;
@@ -23,10 +25,6 @@ while (flag) {
     playerTwo = new Fighter("Bruce Lee");
   }
 }
-
-// Logging player stats
-console.log(playerOne);
-console.log(playerTwo);
 
 // Function make to go through and have person one hit person two.
 const attack = (fighterOne, fighterTwo) => {
@@ -60,4 +58,6 @@ const attack = (fighterOne, fighterTwo) => {
 };
 
 // Calling attack function and logging winners namer
-console.log("                      The winner is " + attack(playerOne, playerTwo));
+console.log(
+  "                      The winner is " + attack(playerOne, playerTwo)
+);
