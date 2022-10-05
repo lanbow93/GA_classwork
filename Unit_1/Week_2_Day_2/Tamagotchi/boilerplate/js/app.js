@@ -40,7 +40,7 @@ const pet = {
 function newDay() {
   let timeOfDay = "";
   let spanColor = "";
-  const daySpan = document.querySelector("span");
+  const daySpan = document.querySelector(".time");
   switch ((pet.age * 2) % 1){
     case (0):
       timeOfDay = "Morning";
@@ -83,7 +83,7 @@ function updateLifeStage(){
 }
 
 const trackingTime = setInterval(timePassed, 500);
-const timeCount = setInterval(timeMarker, 2000);
+const timeCount = setInterval(timeMarker, 4000);
 
 function timeMarker() {
   pet.hungerLevel += 1;
