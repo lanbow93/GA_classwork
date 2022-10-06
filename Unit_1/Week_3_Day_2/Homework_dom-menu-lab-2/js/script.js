@@ -78,6 +78,7 @@ topMenuEl.addEventListener("click", function (event) {
   }
 
   const barLinks = topMenuEl.querySelectorAll("a");
+
   for (let barlink of barLinks) {
     barlink.classList.remove("active");
   }
@@ -101,8 +102,6 @@ topMenuEl.addEventListener("click", function (event) {
     subMenuEl.style.top = "0";
   }
 
-  
-
 }); // End of click event listener function
 
 function buildSubMenu(sublinkArray){
@@ -115,11 +114,8 @@ function buildSubMenu(sublinkArray){
   });
 }
 
-
-
-
 subMenuEl.addEventListener("click", function(event) {
-  preventDefault();
+  event.preventDefault();
   let tagChecker = event.target.localName;
   if (tagChecker !== "a") {
     return;

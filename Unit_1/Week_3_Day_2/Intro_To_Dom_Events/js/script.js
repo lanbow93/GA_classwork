@@ -14,7 +14,8 @@ btn.addEventListener('click', function(event) {
 /*
 ------------Review Questions------------
 ❓ What is the name of the method used to attach event listeners to elements?
-ELEMENT.addEventListener();
+
+ELEMENT.addEventListener("eventType", functionName);
 ❓ Name three events that might be triggered in the browser.
 onclick, onmouseover, onload
 */
