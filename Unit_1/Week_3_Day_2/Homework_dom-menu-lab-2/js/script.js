@@ -1,4 +1,4 @@
-// https://codesandbox.io/s/dom-menu-lab-rndnhn?file=/js/script.js
+// https://codepen.io/the-doctor1434/full/yLjxWpN
 
 // Menu data structure
 var menuLinks = [
