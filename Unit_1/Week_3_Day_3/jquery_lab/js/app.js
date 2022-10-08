@@ -12,5 +12,5 @@ const billboard = $(".skillList")
 */
 
 function(event) {
-    
-}
+
+} 
