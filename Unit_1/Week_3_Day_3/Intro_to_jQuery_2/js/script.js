@@ -30,9 +30,9 @@ console.log($("#zillowLink").attr("href"));
 
 // Adding click listener with Jquery
 // If "Add Home" button is clicked, log the jQuery event
-$("#addHome").on("click", function(event) {
-    console.log(event);
-})
+// $("#addHome").on("click", function(event) {
+//     console.log(event);
+// })
 
 // Setting a click listener on the entire body
 // Any div with the class circle, will trigger the function
@@ -47,18 +47,7 @@ $("body").on("click", "div.circle", function(){
     // ^^^ Prints out the specific button's element
 // });
 
-// In an element with the ID homes, locate all elements with tbody
-// When clicking a button element, remove 'this' (the clicked) element's closest <tr> element
-$("#homes tbody").on("click", "button", function() {
-  //  $(this).closest("tr").remove(); // .closest() looks up (parent elements) |  .children() looks down
-    
-  // Same as above but slowly fades out the element before removing it
-  $(this).closest("tr").fadeOut(1000, function() {
-        $(this).remove();
-    })
-});
 
-// var newHomes // {address: "27569 Cedarwood Drive", sf: "2,535", bedrooms: 3, baths: 2.5, price: "$496,500"}
 let counterAddHome = 0;
 $("#addHome").on("click", function(event) {
     const currentLink = newHomes[counterAddHome]
@@ -78,5 +67,22 @@ $("#addHome").on("click", function(event) {
     } else {
         event.currentTarget.disabled = true;
     }
-    
 })
+
+// In an element with the ID homes, locate all elements with tbody
+// When clicking a button element, remove 'this' (the clicked) element's closest <tr> element
+$("#homes tbody").on("click", "button", function() {
+    //  $(this).closest("tr").remove(); // .closest() looks up (parent elements) |  .children() looks down
+      
+    // Same as above but slowly fades out the element before removing it
+    $(this).closest("tr").fadeOut(1000, function() {
+      const tempHold = $(this).remove()
+         $storedHomes.push(tempHold);
+      })
+  });
+
+const $storedHomes = [];
+
+$("#returnHome").on("click", function() {
+   console.log($storedHomes[0].innerHTML)
+});
