@@ -1,21 +1,26 @@
 .centered {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    /* bring your own prefixes */
-    transform: translate(-50%, -50%);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
   }
 
-  form {
-    background: grey;
-  }
 
-  h1 {
-    background-color: #93C47D;
-    color: white;
-  }
 
-  .skill {
-    background-color: red;
-    
-  }
+ h1 {
+  background-color: #93C47D;
+  color: white;
+}
+
+[type=text], [type=submit] {
+  border-style: solid;
+  border-color: #93C47D;
+}
+div {
+  color: #FFAC2F;
+}
+[type=button] {
+  background-color: #E06666;
+  border: none;
+}
