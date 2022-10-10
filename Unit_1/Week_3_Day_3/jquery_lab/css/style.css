@@ -11,11 +11,18 @@
  h1 {
   background-color: #93C47D;
   color: white;
+  font-size: 2vw;
+  text-align: center;
+  padding: 2%;
+  
 }
 
 [type=text], [type=submit] {
   border-style: solid;
   border-color: #93C47D;
+  border-width: 3px;
+  background-color: white;
+  color: #93C47D;
 }
 div {
   color: #FFAC2F;
@@ -23,4 +30,10 @@ div {
 [type=button] {
   background-color: #E06666;
   border: none;
+  color: white;
+  margin: 0 3% 5% 0;
+}
+
+.bulletItem{
+  
 }
