@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  background-color: gray;
+  width: 400px;
+  height: 400px;
+  margin: auto;
+  flex-direction: column-reverse;
+}
+
+.square {
+  height: 200px;
+  width: 200px;
+}
+
+/* ***************************
+** Square Colors
+*************************** */
+
+.one {
+  background-color: red;
+}
+
+.two {
+  background-color: green;
+}
+
+.three {
+  background-color: blue;
+}
+
+.four {
+  background-color: yellow;
+}

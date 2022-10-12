@@ -1,0 +1,45 @@
+* {
+  background-color: grey;
+}
+
+@media (max-width: 600px) {
+  .box {
+    background-color: blue;
+    font-style: italic;
+  }
+}
+
+@media (max-width: 300px) {
+  #one {
+    background-color: purple;
+    color: red;
+  }
+
+  #two {
+    background-color: green;
+    color: yellow;
+  }
+
+  #three {
+    background-color: yellow;
+    color: green;
+  }
+
+  #four {
+    background-color: black;
+    color: white;
+  }
+}
+
+@media (max-width: 100px) {
+  
+  .box {
+    display: none;
+  }
+
+  #one {
+    display: block;
+    background-image: url("https://www.meme-arsenal.com/memes/b31abb1077b1d35f6f5d3c45e36081d4.jpg");
+  }
+
+}
