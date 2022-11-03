@@ -1,19 +1,43 @@
+require("dotenv").config()
 const express = require("express");
 const app = express();
-const port = 3000;
+const PORT = process.env.PORT;
+console.log(process.env.PORT)
 
 const plants = ['Monstera Deliciosa', 'Corpse Flower', 'Elephant-Foot Yam', "Witches' Butter"];
+
+app.get('/awesome', (request, response) => {
+    response.send(`
+        <h1>plants are awesomse</h1>
+        <img src="https://static.boredpanda.com/blog/wp-content/uuuploads/plant-sculptures-mosaicultures-internationales-de-montreal/plant-sculptures-mosaicultures-internationales-de-montreal-14.jpg" >
+    `)
+});
 
 app.get("/:indexOfPlantsArray", (request, response) => {
     if(plants[request.params.indexOfPlantsArray]){
         response.send(plants[request.params.indexOfPlantsArray]);
     } else {
-        response.send("This is the index: " + request.params.indexOfPlantsArray)
+        response.send("Cannot find anything in: " + request.params.indexOfPlantsArray)
     }
-    
-    response.send("This is the index: " + request.params.indexOfPlantsArray)
+
 });
 
-app.listen(port, () => {
-    console.log("Listening on port", port);
+app.get('/:ia/:instructor', (request, response) =>{
+    console.log(request.params)
+    response.send(`the ia is ${request.params.ia} and the instrcutor is ${request.params.instructor}`)
+})
+
+app.get('/hello/:firstname/:lastname', (request, response) => {
+    response.send(`hello my name is ${request.params.firstname} ${request.params.lastname}`)
+})
+
+//req.query example 
+app.get('/reqqueryexample/:firstname/:lastname', (request, response) => {
+    console.log('The request.query is ' + request.query.title + " " +  request.query.house + ' and not to be confused w/ request.params. This is request.query')
+    console.log(request.query)
+    response.send(`hello my name is ${request.params.firstname} ${request.params.lastname} and my title is ${request.query.title}`)
+})
+
+app.listen(PORT, () => {
+    console.log("Listening on port", PORT);
 });
