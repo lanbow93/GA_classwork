@@ -1,4 +1,5 @@
 // Importing dependencies
+const { request } = require("express");
 const express = require("express");
 const drinks = require("../models/drinks")
 
@@ -13,7 +14,10 @@ router.get("/", (req, res) => {
 })
 
 router.get("/:id", (req, res) => {
-    res.send(req.params.id)
+    res.render("drinks_show.ejs", {
+        drinks: drinks,
+        id: req.params.id
+    })
 })
 
 module.exports = router
