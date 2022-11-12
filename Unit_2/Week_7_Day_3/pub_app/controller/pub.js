@@ -7,7 +7,9 @@ const router = express.Router();
 
 // Creating routes
 router.get("/", (req, res) => {
-    res.send(drinks)
+    res.render("drinks_index.ejs", {
+        drinks: drinks
+    })
 })
 
 module.exports = router
