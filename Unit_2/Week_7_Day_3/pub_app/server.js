@@ -1,6 +1,7 @@
 // Importing dependencies
 require("dotenv").config();
 const express = require("express");
+const Router = require("./controller/pub")
 
 // Global Variables
 const PORT = process.env.PORT;
@@ -9,7 +10,7 @@ const PORT = process.env.PORT;
 const app = express();
 
 // Middleware
-// app.use("/")
+app.use("/drinks", Router)
 
 // Routes
 
@@ -21,3 +22,4 @@ app.get("/", (req, res) => {
 app.listen(PORT, (req, res) => {
     console.log(`Listening on port: ${PORT}`);
 })
+
