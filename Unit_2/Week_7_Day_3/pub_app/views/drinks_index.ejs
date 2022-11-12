@@ -17,7 +17,7 @@
     <h3>List of Drinks</h3>
     <ul>
         <% drinks.forEach((drink) => { %>
-            <li><%= drink.name.slice(0, 1).toUpperCase() + drink.name.slice(1) %></li>
+            <li><a href="/drinks/<%= drinks.indexOf(drink)%>"><%= drink.name.slice(0, 1).toUpperCase() + drink.name.slice(1) %></a></li>
         <% }) %>
     </ul>
 </body>
