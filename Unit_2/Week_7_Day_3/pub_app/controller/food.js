@@ -9,8 +9,15 @@ const Router = express.Router()
 
 // Creating food routes
 
-Router.get("/food/:id", (req, res) => {
-    res.send("Make it to the food router")
+Router.get("/", (req, res) => {
+    res.send("Made it to the food router")
+})
+
+Router.get("/:id", (req, res) => {
+    res.render("food_show.ejs", {
+        food: food,
+        id: req.params.id
+    });
 })
 
 
