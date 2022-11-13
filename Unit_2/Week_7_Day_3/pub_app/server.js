@@ -1,7 +1,8 @@
 // Importing dependencies
 require("dotenv").config();
 const express = require("express");
-const Router = require("./controller/pub")
+const DrinkRouter = require("./controller/pub")
+const FoodRouter = require("./controller/food")
 
 // Global Variables
 const PORT = process.env.PORT;
@@ -10,7 +11,8 @@ const PORT = process.env.PORT;
 const app = express();
 
 // Middleware
-app.use("/drinks", Router)
+app.use("/drinks", DrinkRouter)
+app.use("/food", FoodRouter)
 
 // Routes
 
