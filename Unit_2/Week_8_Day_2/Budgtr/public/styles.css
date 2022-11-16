@@ -8,3 +8,16 @@ ul {
 .heading {
     font-weight: bold;
 }
+
+h3 {
+    border-style: dotted;
+    display: inline;
+}
+
+#red {
+    background-color: red;
+}
+
+#green {
+    background-color: green;
+}

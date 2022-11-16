@@ -2,6 +2,15 @@
 
 <div class="container">
     <h1>Budgtr</h1>
+    <% if (Account < 0 ) { %>
+        <h3 id="red">Current Balance: <%= Account %></h3><br><br>
+    <% } else if (Account > 1000) { %>
+        <h3 id="green">Current Balance: <%= Account %></h3><br><br>
+    <% } else { %>
+        <h3>Current Balance: <%= Account %></h3><br><br>
+    <% } %>
+    
+    <a href="/budgets/new">,<button>New Item</button></a>
     <table>
         <tr>
            <th>Date</th>
