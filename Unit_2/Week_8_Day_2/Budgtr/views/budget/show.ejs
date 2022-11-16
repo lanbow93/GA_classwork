@@ -1,0 +1,19 @@
+<%- include("../partials/head.ejs") %>
+
+<div class="container">
+    <h1><%= item.name %></h1>
+    <a href="/budgets"><input type="button" value="BACK"></a>
+
+    <ul>
+        <li class="heading">Date:</li>
+        <ul><li><%= item.date %></li></ul>
+        <li class="heading">Name:</li>
+        <ul><li><%= item.name %></li></ul>
+        <li class="heading">From:</li>
+        <ul><li><%= item.from %></li></ul>
+        <li class="heading">Amount:</li>
+        <ul><li><%= item.amount %></li></ul>
+        <li class="heading">Tags:</li>
+        <ul><li><%= item.tags %></li></ul>
+    </ul>
+</div>
