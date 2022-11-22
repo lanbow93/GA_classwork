@@ -2,7 +2,7 @@ const express = require("express");
 const pokemon = require("../models/pokemon");
 const Pokemon = require("../models/pokemon")
 const router = express.Router();
-let pageCounter = {
+const pageCounter = {
     page: 0,
     forward: function() { 
         if(this.page = Math.ceil(Pokemon.length /6)) {
@@ -28,7 +28,7 @@ let pageCounter = {
     }
 }
 
-pageCounter.forward
+pageCounter.forward()
 
 router.get("/", (req, res) => {
     res.render("pokemon/index.ejs", {
