@@ -28,10 +28,9 @@
         </div>
         <div class="row">
             <div class="btn-group mt-5">
-                <a href="/pokemon" class="btn btn-success" onclick="test1">Backward</a>
-                <a href="/pokemon" class="btn btn-warning" onclick="test2">Beginning Of List</a>
-                <a href="/pokemon" class="btn btn-success" onclick="test3">Forward</a>
-
+                <a href="/pokemon" class="btn btn-success" onclick=" <%  pageTracker.forward() %> ">Backward</a>
+                <a href="/pokemon" class="btn btn-warning" onclick=" <%  pageTracker.reset() %>  ">Beginning Of List</a>
+                <a href="/pokemon" class="btn btn-success" onclick=" <%  pageTracker.backward() %> ">Forward</a>
             </div>
         </div>
     
