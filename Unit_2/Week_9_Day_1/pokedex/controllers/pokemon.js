@@ -2,38 +2,37 @@ const express = require("express");
 const pokemon = require("../models/pokemon");
 const Pokemon = require("../models/pokemon")
 const router = express.Router();
+let page = 0
 const pageCounter = {
-    page: 0,
     forward: function() { 
-        if(this.page = Math.ceil(Pokemon.length /6)) {
-            this.page = 0
-            console.log(this.page)
+        if(page === Math.ceil(Pokemon.length /6)) {
+            page = 0
+            console.log(page)
         } else {
-            this.page += 1;
-            console.log(this.page)
+            page += 1;
+            console.log(page)
         }
     },
     backward: function() {
-        if (this.page = 0) {
-            this.page = Math.ceil(Pokemon.length /6);
-            console.log(this.page)
+        if (page === 0) {
+            page = Math.ceil(Pokemon.length /6);
+            console.log(page)
         } else {
-            this.page -= 1
-            console.log(this.page)
+            page -= 1
+            console.log(page)
         }
     },
     reset: function() { 
-        this.page = 0
-        console.log(this.page)
+        page = 0
+        console.log(page)
     }
 }
-
-pageCounter.forward()
 
 router.get("/", (req, res) => {
     res.render("pokemon/index.ejs", {
         AllPokemon: Pokemon,
-        pageTracker: pageCounter
+        pageTracker: pageCounter,
+        page: page
     })
 })
 

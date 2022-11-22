@@ -7,30 +7,31 @@
 <div class="container-lg-fluid border bg-danger">
 
         <div class="row m-3">
-            <div class="col-4"><a href="/pokemon/0"><img src="<%= AllPokemon[pageTracker.page].img %>" alt="Picture of <%= AllPokemon[pageTracker.page].name %>"></a></div>
-            <div class="col-4"><a href=""><img src="<%= AllPokemon[pageTracker.page + 1].img %>" alt="Picture of <%= AllPokemon[pageTracker.page].name %>"></a></div>
-            <div class="col-4"><a href=""><img src="<%= AllPokemon[pageTracker.page + 2].img %>" alt="Picture of <%= AllPokemon[pageTracker.page].name %>"></a></div>
+            <div class="col-4"><a href="/pokemon/0"><img src="<%= AllPokemon[page].img %>" alt="Picture of <%= AllPokemon[page].name %>"></a></div>
+            <div class="col-4"><a href=""><img src="<%= AllPokemon[page + 1].img %>" alt="Picture of <%= AllPokemon[page + 1].name %>"></a></div>
+            <div class="col-4"><a href=""><img src="<%= AllPokemon[page + 2].img %>" alt="Picture of <%= AllPokemon[page + 2].name %>"></a></div>
         </div>
         <div class="row m-3 jc-spacebetween">
-            <div class="col-4"><h3><%= AllPokemon[pageTracker.page].name %></h3></div>
-            <div class="col-4"><h3><%= AllPokemon[pageTracker.page + 1].name %></h3></div>
-            <div class="col-4"><h3><%= AllPokemon[pageTracker.page + 2].name %></h3></div>
+            <div class="col-4"><h3><%= AllPokemon[page].name %></h3></div>
+            <div class="col-4"><h3><%= AllPokemon[page + 1].name %></h3></div>
+            <div class="col-4"><h3><%= AllPokemon[page + 2].name %></h3></div>
         </div>
         <div class="row m-3">
-            <div class="col-4"><a href=""><img src="<%= AllPokemon[pageTracker.page + 3].img %>" alt="Picture of <%= AllPokemon[pageTracker.page].name %>"></a></div>
-            <div class="col-4"><a href=""><img src="<%= AllPokemon[pageTracker.page + 4].img %>" alt="Picture of <%= AllPokemon[pageTracker.page].name %>"></a></div>
-            <div class="col-4"><a href=""><img src="<%= AllPokemon[pageTracker.page + 5].img %>" alt="Picture of <%= AllPokemon[pageTracker.page].name %>"></a></div>
+            <div class="col-4"><a href=""><img src="<%= AllPokemon[page + 3].img %>" alt="Picture of <%= AllPokemon[page + 3].name %>"></a></div>
+            <div class="col-4"><a href=""><img src="<%= AllPokemon[page + 4].img %>" alt="Picture of <%= AllPokemon[page + 4].name %>"></a></div>
+            <div class="col-4"><a href=""><img src="<%= AllPokemon[page + 5].img %>" alt="Picture of <%= AllPokemon[page + 5].name %>"></a></div>
         </div>
         <div class="row m-3">
-            <div class="col-4"><h3><%= AllPokemon[pageTracker.page + 3].name %></h3></div>
-            <div class="col-4"><h3><%= AllPokemon[pageTracker.page + 4].name %></h3></div>
-            <div class="col-4"><h3><%= AllPokemon[pageTracker.page + 5].name %></h3></div>
+            <div class="col-4"><h3><%= AllPokemon[page + 3].name %></h3></div>
+            <div class="col-4"><h3><%= AllPokemon[page + 4].name %></h3></div>
+            <div class="col-4"><h3><%= AllPokemon[page + 5].name %></h3></div>
         </div>
         <div class="row">
             <div class="btn-group mt-5">
-                <a href="/pokemon" class="btn btn-success" onclick=" <%  pageTracker.forward() %>">Backward</a>
-                <a href="/pokemon" class="btn btn-warning" onclick=" ">Beginning Of List</a>
-                <a href="/pokemon" class="btn btn-success" onclick=" ">Forward</a>
+                <a href="/pokemon" class="btn btn-success" onclick="test1">Backward</a>
+                <a href="/pokemon" class="btn btn-warning" onclick="test2">Beginning Of List</a>
+                <a href="/pokemon" class="btn btn-success" onclick="test3">Forward</a>
+
             </div>
         </div>
     
