@@ -9,26 +9,26 @@ const missing = {
     <h1 class="justify-center">Select A Pokemon For More Information</h1>
 </div>
 <div class="container-lg-fluid border bg-danger">
-<% console.log(missing.img) %>
+<% console.log(missing.name) %>
         <div class="row m-3">
-            <div class="col-4"><a href="/pokemon/<%= base %>"><img src="<%= AllPokemon[ base ].img ? AllPokemon[ base ].img : missing.img %>" alt="Picture of <%= AllPokemon[base].name ? AllPokemon[base].name : missing.name %>"></a></div>
-            <div class="col-4"><a href="/pokemon/<%= base + 1 %>"><img src="<%= AllPokemon[ base + 1 ].img ? AllPokemon[ base + 1 ].img : missing.img %>" alt="Picture of <%= AllPokemon[base + 1].name ? AllPokemon[base + 1].name : missing.name  %>"></a></div>
-            <div class="col-4"><a href="/pokemon/<%= base + 2 %>"><img src="<%= AllPokemon[base + 2].img ? AllPokemon[base + 2].img : missing.img %>" alt="Picture of <%= AllPokemon[base + 2].name ? AllPokemon[base + 2].name : missing.name %>"></a></div>
+            <div class="col-4"><a href="/pokemon/<%= base %>"><img src="<%= AllPokemon[ base ] ? AllPokemon[ base ].img : missing.img %>" alt="Picture of <%= AllPokemon[base] ? AllPokemon[base].name : missing.name %>"></a></div>
+            <div class="col-4"><a href="/pokemon/<%= base + 1 %>"><img src="<%= AllPokemon[ base + 1 ] ? AllPokemon[ base + 1 ].img : missing.img %>" alt="Picture of <%= AllPokemon[base + 1] ? AllPokemon[base + 1].name : missing.name  %>"></a></div>
+            <div class="col-4"><a href="/pokemon/<%= base + 2 %>"><img src="<%= AllPokemon[base + 2] ? AllPokemon[base + 2].img : missing.img %>" alt="Picture of <%= AllPokemon[base + 2] ? AllPokemon[base + 2].name : missing.name %>"></a></div>
         </div>
         <div class="row m-3 jc-spacebetween">
-            <div class="col-4"><h3><%= AllPokemon[base].name ? AllPokemon[base].name : missing.name %></h3></div>
-            <div class="col-4"><h3><%= AllPokemon[base + 1].name ? AllPokemon[base + 1].name : missing.name %></h3></div>
-            <div class="col-4"><h3><%= AllPokemon[base + 2].name ? AllPokemon[base + 2].name : missing.name %></h3></div>
+            <div class="col-4"><h3><%= AllPokemon[base] ? AllPokemon[base].name : missing.name %></h3></div>
+            <div class="col-4"><h3><%= AllPokemon[base + 1] ? AllPokemon[base + 1].name : missing.name %></h3></div>
+            <div class="col-4"><h3><%= AllPokemon[base + 2] ? AllPokemon[base + 2].name : missing.name %></h3></div>
         </div>
         <div class="row m-3">
-            <div class="col-4"><a href="/pokemon/<%= base + 3 %>"><img src="<%= AllPokemon[ base + 3].img ? AllPokemon[ base + 3].img : missing.img  %>" alt="Picture of <%= AllPokemon[ base + 3].name ? AllPokemon[ base + 3].name : missing.name %>"></a></div>
-            <div class="col-4"><a href="/pokemon/<%= base + 4 %>"><img src="<%= AllPokemon[base + 4].img ? AllPokemon[base + 4].img : missing.img %>" alt="Picture of <%= AllPokemon[ base + 4].name ? AllPokemon[ base + 4].name : missing.name %>"></a></div>
-            <div class="col-4"><a href="/pokemon/<%= base + 5 %>"><img src="<%= AllPokemon[base + 5].img ? AllPokemon[base + 5].img : missing.img %>" alt="Picture of <%= AllPokemon[ base + 5].name ? AllPokemon[ base + 5].name : missing.name %>"></a></div>
+            <div class="col-4"><a href="/pokemon/<%= base + 3 %>"><img src="<%= AllPokemon[ base + 3] ? AllPokemon[ base + 3].img : missing.img  %>" alt="Picture of <%= AllPokemon[ base + 3] ? AllPokemon[ base + 3].name : missing.name %>"></a></div>
+            <div class="col-4"><a href="/pokemon/<%= base + 4 %>"><img src="<%= AllPokemon[base + 4] ? AllPokemon[base + 4].img : missing.img %>" alt="Picture of <%= AllPokemon[ base + 4] ? AllPokemon[ base + 4].name : missing.name %>"></a></div>
+            <div class="col-4"><a href="/pokemon/<%= base + 5 %>"><img src="<%= AllPokemon[base + 5] ? AllPokemon[base + 5].img : missing.img %>" alt="Picture of <%= AllPokemon[ base + 5] ? AllPokemon[ base + 5].name : missing.name %>"></a></div>
         </div>
         <div class="row m-3">
-            <div class="col-4"><h3><%= AllPokemon[ base + 3].name ? AllPokemon[ base + 3].name : missing.name %></h3></div>
-            <div class="col-4"><h3><%= AllPokemon[ base + 4].name ? AllPokemon[ base + 4].name : missing.name %></h3></div>
-            <div class="col-4"><h3><%= AllPokemon[ base + 5].name ? AllPokemon[ base + 5].name : missing.name %></h3></div>
+            <div class="col-4"><h3><%= AllPokemon[ base + 3] ? AllPokemon[ base + 3].name : missing.name %></h3></div>
+            <div class="col-4"><h3><%= AllPokemon[ base + 4] ? AllPokemon[ base + 4].name : missing.name %></h3></div>
+            <div class="col-4"><h3><%= AllPokemon[ base + 5] ? AllPokemon[ base + 5].name : missing.name %></h3></div>
         </div>
         <div class="row">
             <div class="btn-group mt-5">
