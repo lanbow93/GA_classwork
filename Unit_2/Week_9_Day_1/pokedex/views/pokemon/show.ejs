@@ -1,0 +1,17 @@
+<%- include("../partials/head.ejs")%>
+
+<div class="container">
+    <div class="row">
+        <h1 class="text-center"><%= Pokemon.name %></h1>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <p>Type: <%= Pokemon.type %></p>
+         </div>
+         <div class="col">
+             <p>Classification:  <%= (Pokemon.misc.classification).replace(/^(.)|\s+(.)/g, c => c.toUpperCase())  %> </p>
+         </div>
+    </div>
+</div>
