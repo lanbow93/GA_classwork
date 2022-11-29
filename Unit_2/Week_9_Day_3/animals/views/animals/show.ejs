@@ -16,13 +16,15 @@
         
         <div class="row text-center ">
                 <div class="col ">
-                    <button class="bg-danger rounded fw-bold" onclick="window.location='/animals'">Delete <%= animal.species[0].toUpperCase() + animal.species.slice(1).toLowerCase() %></button>
+                    <form action="/animals/<%= animal._id %>?_method=DELETE" method="post">
+                        <input type="submit" value="Delete <%= animal.species[0].toUpperCase() + animal.species.slice(1).toLowerCase() %>" class="btn bg-danger fw-bold">
+                    </form>
                 </div>
                 <div class="col">
-                    <button  class="bg-info rounded fw-bold"onclick="window.location='/animals'">Back To Home</button>
+                    <button  class="btn bg-info rounded fw-bold"onclick="window.location='/animals'">Back To Home</button>
                 </div>
                 <div class="col">
-                    <button class="bg-warning rounded fw-bold" onclick="window.location='/animals'">Edit <%= animal.species[0].toUpperCase() + animal.species.slice(1).toLowerCase() %></button>
+                    <button class="btn bg-warning rounded fw-bold" onclick="window.location='/animals'">Edit <%= animal.species[0].toUpperCase() + animal.species.slice(1).toLowerCase() %></button>
                 </div>
         </div>
     </div>
