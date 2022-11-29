@@ -34,13 +34,18 @@ router.get("/new", (req, res) => {
 // Destroy Route
 
 router.delete("/:id", async (req, res) => {
-    await Animal.findByIdAndRemove(req.params.id).catch((error => errorHandler(error, res)))
+    await Animal.findByIdAndRemove(req.params.id).catch((error => errorCatcher(error, res)))
     res.redirect("/animals")
 })
 
 // Update Route
 
 // Create Route
+router.post("/", async (req, res) => {
+    req.body.isExtinct = req.body.isExtinct ? true : false
+    await Animal.create(req.body).catch((error => errorCatcher(error, res)))
+    res.redirect("/animals")
+})
 
 // Edit Route
 
