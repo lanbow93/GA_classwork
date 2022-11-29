@@ -24,7 +24,7 @@
                     <button  class="btn bg-info rounded fw-bold"onclick="window.location='/animals'">Back To Home</button>
                 </div>
                 <div class="col">
-                    <button class="btn bg-warning rounded fw-bold" onclick="window.location='/animals'">Edit <%= animal.species[0].toUpperCase() + animal.species.slice(1).toLowerCase() %></button>
+                    <button class="btn bg-warning rounded fw-bold" onclick="window.location='/animals/<%= animal._id %>/edit'">Edit <%= animal.species[0].toUpperCase() + animal.species.slice(1).toLowerCase() %></button>
                 </div>
         </div>
     </div>

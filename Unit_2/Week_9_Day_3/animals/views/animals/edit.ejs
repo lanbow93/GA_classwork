@@ -1,0 +1,33 @@
+<%- include("../partials/head.ejs") %>
+
+<div class="container">
+    <form action="/animals/<%= animal._id %>?_method=PUT" method="post">
+        <div class="row text-center">
+            <h1>Animal Updating Form</h1>
+            <h3>Currently Editing: <%= animal.species %></h3>
+        </div>
+        <div class="row">
+            <div class="col"><p>Species Name:</p></div>
+            <div class="col"><input type="text" name="species" placeholder="Species Name" value="<%= animal.species %>"></div>
+        </div>
+        <div class="row">
+            <div class="col"><p>Image URL:</p></div>
+            <div class="col"><input type="text" name="image" placeholder="Image URL" value="<%= animal.image %>"></div>
+        </div>
+        <div class="row">
+            <div class="col"><p>Location:</p></div>
+            <div class="col"><input type="text" name="location" placeholder="Location of Species" value="<%= animal.location %>"></div>
+        </div>
+        <div class="row">
+            <div class="col"><p>Life Expectancy (In Years):</p></div>
+            <div class="col"><input type="text" name="lifeExpectancy" placeholder="Life Expectancy" value="<%= animal.lifeExpectancy %>"></div>
+        </div>
+        <div class="row">
+            <div class="col"><p>Check Box If Extinct:</p></div>
+            <div class="col"><input type="checkbox" name="isExtinct" <%= animal.isExtinct ? "checked" : ""  %>></div>
+        </div>
+        <div class="row">
+            <input type="submit" value="Update Animal In Database" class="btn bg-success text-white fw-bold">
+        </div>
+    </form>
+</div>
