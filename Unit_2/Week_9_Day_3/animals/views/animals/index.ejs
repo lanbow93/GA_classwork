@@ -1,0 +1,16 @@
+<%- include("../partials/head.ejs") %>
+
+<div class="container">
+    <div class="row">
+        <div class="col text-center">
+            <h1>List Of Animals</h1>
+        </div>
+    </div>
+    <div class="row">
+        <ul>
+            <% animals.forEach((animal) => { %>
+                <li><a href="/animals/<%= animal._id %>"><%= animal.species %></a></li>
+            <% }) %>
+        </ul>
+    </div>
+</div>
