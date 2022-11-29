@@ -4,10 +4,10 @@ const mongoose = require("./connection");
 
 const animalSchema = new mongoose.Schema({
     species: {type: String, required: true},
-    extinct: Boolean,
+    isExtinct: Boolean,
     location: {type: String, required: true},
-    lifeExpectancy: {type: Number, required: true}
-
+    lifeExpectancy: {type: Number, required: true},
+    image: {type: String, required: true}
 }, {timestamps: true});
 
 

@@ -4,7 +4,6 @@ const morgan = require("morgan");
 const express = require("express");
 const methodOverride = require("method-override")
 const animalRouter = require("./controllers/animal");
-const { urlencoded } = require("express");
 
 // Creating application object
 const app = express();
