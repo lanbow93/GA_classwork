@@ -1,0 +1,62 @@
+
+.displayWindow {
+  display: grid;
+  grid-column-gap: 1rem;
+  grid-row-gap: 1rem;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr 1fr 1fr;
+  background-color: green;
+  padding: 4% 2%;
+}
+
+.displayWindow div {
+  border-radius: 10px;
+  background-color: lightgray;
+}
+.navigation {
+  grid-row: span 3;
+  
+}
+.reviews {
+  grid-row: span 1;
+}
+.averageRating {
+  grid-row: span 1;
+}
+
+.sentiment {
+  grid-row: span 1;
+}
+.websiteVisitors {
+  grid-column: span 3;
+  grid-row: span 2;
+}
+
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

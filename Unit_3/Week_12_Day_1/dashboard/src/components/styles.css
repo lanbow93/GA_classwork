@@ -1,0 +1,23 @@
+/* Test CSS */
+h1 {
+    color: blueviolet;
+}
+
+.borderTest {
+    border-style: solid;
+}
+
+.navigation {
+    display: flex;
+    align-items: center;
+}
+
+.navigation ul {
+    list-style-type: none;
+}
+li {
+    margin-bottom: .5rem;
+}
+p {
+    margin: 0
+}
