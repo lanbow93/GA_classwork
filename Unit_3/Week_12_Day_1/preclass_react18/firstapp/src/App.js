@@ -3,6 +3,8 @@ import './App.css';
 import Footer from './components/Footer';
 import Header from './components/Header';
 
+import {useState} from "react"
+
 
 function Example(props) {
   return <h1>{props.children}</h1>
@@ -10,20 +12,22 @@ function Example(props) {
 
 function App() {
 
-  const cheese = "Gouda"
-  const someJSX = <h1>Hello World</h1>
+  const [counter, setCounter]= useState({
+    value: 1
+  })
+
+  console.log("component rendered", counter)
+  const addOne = () => {
+    const newState = {...counter}
+    newState.value += 1;
+    setCounter(newState)
+    console.log("Add One" + counter)
+  }
 
   return (
     <div className="App">
-      {5 + 5 + " Hello"}
-      {someJSX}
-      <Header></Header>
-      <Footer/>
-      <Example weeeee={cheese}>
-        I am the props.children area
-        
-      </Example>
-      
+      <h1>{counter.value}</h1><br/>
+      <button onClick={addOne}>Add One</button>
     </div>
   );
 }
