@@ -5,13 +5,28 @@
         <h1 class="text-center"><%= Pokemon.name %></h1>
     </div>
 </div>
-<div class="container">
+<div class="container-lg-fluid text-center">
     <div class="row">
-        <div class="col">
-            <p>Type: <%= Pokemon.type %></p>
-         </div>
          <div class="col">
-             <p>Classification:  <%= (Pokemon.misc.classification).replace(/^(.)|\s+(.)/g, c => c.toUpperCase())  %> </p>
+            <h4>ID Number: <%= Pokemon[index].id %></h4>
          </div>
+    </div>
+    <div class="row text-center align-center">
+        <div class="col">
+            <h3>Type:<br><%= Pokemon[index].type %></h3>
+         </div>
+        <div class="col">
+        <img src="<%= Pokemon[index].img%>" alt="Image of <%= Pokemon[index].name %>" class="img-fluid">
+        </div>
+        <div class="col">
+             <h3>Classification:<br><%= (Pokemon[index].misc.classification).replace(/^(.)|\s+(.)/g, c => c.toUpperCase())  %> </h3>
+         </div>
+    </div>
+    <div class="row">
+        <div class="col text-center block">
+            <form action="/pokemon/<%=index%>?_method=DELETE" method="POST">
+                <input type="submit" value="Delete Pokemon">
+            </form>
+        </div>
     </div>
 </div>

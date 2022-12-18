@@ -1,7 +1,7 @@
 // Import Dependencies
 const express = require("express");
-const PokemonRouter = require("./controllers/pokemon");
 const methodOverride = require("method-override");
+const PokemonRouter = require("./controllers/pokemon");
 const morgan = require("morgan")
 require("dotenv").config()
 
