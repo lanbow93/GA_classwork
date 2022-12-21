@@ -15,17 +15,13 @@ function App() {
     event.preventDefault();
     console.log(form)
     if(form) {
-      let wasNotFound = true 
+      const matchingReceipts = []
       for(let receipt of receipts) {
         if (receipt.person == form) {
-          setReceiptList([receipt]);
-          wasNotFound = false;
+          matchingReceipts.push(receipt)
         }
       }
-      if(wasNotFound) {
-        setReceiptList([])
-      }
-      
+      setReceiptList(matchingReceipts)      
     } else {
       setReceiptList(receipts)
     }

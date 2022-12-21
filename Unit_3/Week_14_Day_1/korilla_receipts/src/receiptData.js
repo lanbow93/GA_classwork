@@ -37,7 +37,20 @@ const receipts = [
        cost: 20
      },
      paid: false
-   }
+   },
+   {
+    id:4,
+    person: "Matt",
+    order: {
+      main: "Chicken Bowl",
+      protein: "Teriyaki Chicken",
+      rice: "white",
+      sauce: "Brown",
+      drink: "Ramune",
+      cost: 25
+    },
+    paid: false
+  }
  ]
 
 export default receipts
