@@ -1,9 +1,10 @@
 export default function Form(props){
     return <>
-        <h1>Form Connected</h1>
-        <form>
+        
+        <form onSubmit={props.handler} >
+            <label htmlFor="person">Form Search:</label>
             <input type="text" name="person" placeholder="Search By Name" />
-            <input type="button" value="Submit" />
+            <button type="submit" >Submit</button>
         </form>
     </>
 }
