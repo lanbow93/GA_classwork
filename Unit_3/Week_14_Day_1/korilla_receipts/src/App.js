@@ -10,15 +10,24 @@ function App() {
 
   const [form, setForm] = useState("")
 
-  const handleChange = (event) => {
-    setForm(event.target.value)
-    console.log(event.target.value)
-  }
+  const handleChange = (event) => {setForm(event.target.value)}
   const handleEvent = (event) => {
     event.preventDefault();
-    console.log(event.name)
-    if(event.target) { 
-      console.log("If statement reached");
+    console.log(form)
+    if(form) {
+      let wasNotFound = true 
+      for(let receipt of receipts) {
+        if (receipt.person == form) {
+          setReceiptList([receipt]);
+          wasNotFound = false;
+        }
+      }
+      if(wasNotFound) {
+        setReceiptList([])
+      }
+      
+    } else {
+      setReceiptList(receipts)
     }
   }
 
