@@ -1,1 +1,0 @@
-[THIS IS THE VIDEO REVIEW OF KORILLA RECEIPTS](https://generalassembly.zoom.us/rec/share/fy6jVjQrDPX9R0SJcv7AQQFHKP2Txz1r1Q05LhyFraa1G3P2pLIKJ75xZtklcY4-.XgKvPZgX7UbWjbRi)

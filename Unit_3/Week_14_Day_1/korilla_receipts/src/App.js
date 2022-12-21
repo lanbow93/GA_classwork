@@ -1,4 +1,5 @@
 import Receipts from './components/Receipts';
+import receipts from './receiptData';
 import Form from './components/Form';
 
 import './App.css';
@@ -6,8 +7,9 @@ import './App.css';
 function App() {
   return (
     <div className="App">
+      <h1>Korilla Receipts</h1>
       <Form/>
-      <Receipts orderInformation={Receipts} />
+      <Receipts orderInformation = {receipts} />
     </div>
   );
 }
