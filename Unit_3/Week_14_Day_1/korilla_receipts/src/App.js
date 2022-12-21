@@ -1,10 +1,13 @@
 import Receipts from './components/Receipts';
+import Form from './components/Form';
+
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <Receipts />
+      <Form/>
+      <Receipts orderInformation={Receipts} />
     </div>
   );
 }
