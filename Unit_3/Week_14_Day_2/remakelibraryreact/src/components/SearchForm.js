@@ -9,7 +9,12 @@ export default function SearchForm(props){
         setFormData(newState)
     };
 
-    return <form >
+    const handleEvent = (event) => {
+        event.preventDefault();
+        props.searchBooks(formData.searchTerm)
+    }
+
+    return <form onSubmit={handleEvent}>
         <h2>Please Enter Seach Term</h2>
         <input type="text" placeholder="Enter Search Term" value={formData.searchTerm} onChange={handleChange} />
         <input type="submit" value="Search" />
