@@ -6,11 +6,6 @@ import {useState, useEffect} from 'react'
 
 function App() {
 
-  console.log(process.env.REACT_APP_API_KEY)
-
-  // Setting Api key
-  const apiKey = "5b15c5d3"
-
   // Movie State
   const [movie, setMovie] = useState(null)
 

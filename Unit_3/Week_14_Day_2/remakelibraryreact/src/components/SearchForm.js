@@ -10,6 +10,7 @@ export default function SearchForm(props){
     };
 
     return <form >
+        <h2>Please Enter Seach Term</h2>
         <input type="text" placeholder="Enter Search Term" value={formData.searchTerm} onChange={handleChange} />
         <input type="submit" value="Search" />
     </form>
