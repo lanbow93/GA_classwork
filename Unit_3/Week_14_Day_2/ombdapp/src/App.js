@@ -6,6 +6,8 @@ import {useState, useEffect} from 'react'
 
 function App() {
 
+  console.log(process.env.REACT_APP_API_KEY)
+
   // Setting Api key
   const apiKey = "5b15c5d3"
 
@@ -14,12 +16,11 @@ function App() {
 
   // Function to get movie
   const getMovie = async (searchTerm) => {
-    const response = await fetch(`http://www.omdbapi.com/?apikey=${apiKey}&t=${searchTerm}`)
+    const response = await fetch(`http://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&t=${searchTerm}`)
     const data = await response.json();
     setMovie(data)
   }
 
-  console.log("Trigger in body")
   useEffect(() => {
     getMovie("Swiss Army Man")
   }, [])
