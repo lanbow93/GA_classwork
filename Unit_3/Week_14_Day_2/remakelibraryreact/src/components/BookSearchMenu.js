@@ -9,18 +9,26 @@ export default function BookSearchMenu(props){
     const getBooks = async (searchTerm) => {
         const response = await fetch(`${process.env.REACT_APP_BASE_URL}?q=${searchTerm}`)
         const data = await response.json();
-        setBooks(data)
-        console.log(data.items)
+        setBooks(data.items)
+    }
+
+    const [book, setBook] = useState({
+        bookInfo: {}
+    })
+
+    const showBook = (event, index) => {
+        setBook(books[index])
+        console.log(book)
     }
 
     return <>
 <div className="full">
-    <div className="left">
-        <BookListing />
-    </div>
     <div className="right">
         <SearchForm searchBooks={getBooks}/>
-        <BookPresentation />
+        <BookPresentation book={book}/>
+    </div>
+    <div className="left">
+        {(books) ? <BookListing books={books} showBook={showBook} /> : ""}
     </div>
 </div>
     </>

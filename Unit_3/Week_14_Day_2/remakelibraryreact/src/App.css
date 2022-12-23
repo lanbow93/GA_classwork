@@ -1,7 +1,10 @@
 body{
   background-color: rgb(221, 215, 215);
+  font-family: 'Oleo Script', cursive;
+  justify-content: center;
 }
-.App {
+
+h1{
   text-align: center;
 }
 
@@ -11,9 +14,49 @@ nav {
   background-color: rgba(54, 96, 131, 0.514);
 }
 
+ul{
+  list-style-type: none;
+}
+
+li {
+  margin-top: 1.5rem;
+}
+
+img {
+  width: 20rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 button {
   width: 15rem;
 }
+
+input[type=text] {
+  margin-bottom: 2rem;
+}
+
+.full {
+  display: grid;
+  grid-template-columns: [left]1fr [right]1fr;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 1rem;
+  grid-area: right;
+}
+.left {
+  grid-area: left;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+
 
 /* ~~~~~~~~~~ MOBILE CSS BELOW ~~~~~~~~~~ */
 @media only screen and (max-width: 480px){
@@ -23,4 +66,12 @@ button {
   .nav {
     justify-content: space-between;
   }
+
+  .full {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: [right]1fr [left]1fr;
+  }
+
+
 }
