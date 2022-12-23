@@ -18,14 +18,17 @@ export default function BookSearchMenu(props){
 
     const showBook = (event, index) => {
         setBook(books[index])
-        console.log(book)
     }
 
     return <>
 <div className="full">
     <div className="right">
         <SearchForm searchBooks={getBooks}/>
-        <BookPresentation book={book}/>
+        <BookPresentation 
+        title={(book?.volumeInfo?.title) ? book.volumeInfo.title : "Unknown Title"}
+        authors={(book?.volumeInfo?.authors) ? book.volumeInfo.authors : "Unknown"}
+        description={(book?.volumeInfo?.description) ? (book.volumeInfo.description.length > 450) ? book.volumeInfo.description.split('').splice(0, 450).join('') + " ..." : book.volumeInfo.description : "No Description Available"}
+        />
     </div>
     <div className="left">
         {(books) ? <BookListing books={books} showBook={showBook} /> : ""}
