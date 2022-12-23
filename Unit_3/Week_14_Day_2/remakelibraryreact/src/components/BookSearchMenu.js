@@ -27,7 +27,9 @@ export default function BookSearchMenu(props){
         <BookPresentation 
         title={(book?.volumeInfo?.title) ? book.volumeInfo.title : "Unknown Title"}
         authors={(book?.volumeInfo?.authors) ? book.volumeInfo.authors : "Unknown"}
-        description={(book?.volumeInfo?.description) ? (book.volumeInfo.description.length > 450) ? book.volumeInfo.description.split('').splice(0, 450).join('') + " ..." : book.volumeInfo.description : "No Description Available"}
+        description={(book?.volumeInfo?.description) ? book.volumeInfo.description : "Unknown"}
+        // description={(book?.volumeInfo?.description) ? (book.volumeInfo.description.length > 450) ? book.volumeInfo.description.split('').splice(0, 450).join('') + " ..." : book.volumeInfo.description : "No Description Available"}
+        url={(book?.volumeInfo?.imageLinks?.thumbnail) ? book.volumeInfo.imageLinks.thumbnail : "https://cdn1.iconfinder.com/data/icons/customer-service-30/48/15-128.png"}
         />
     </div>
     <div className="left">
