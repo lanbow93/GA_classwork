@@ -31,7 +31,7 @@ function App() {
     <div className="App">
       <h1>Korilla Receipts</h1>
       <Form eventHandler={handleEvent} changeHandler={handleChange} form={form} setForm={setForm}  />
-      <Receipts orderInformation={receiptList}/>
+      <Receipts orderInformation={receiptList} setOrderInformation={setReceiptList}/>
     </div>
   );
 }
