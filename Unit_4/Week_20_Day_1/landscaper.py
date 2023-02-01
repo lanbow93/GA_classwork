@@ -4,5 +4,10 @@ user_stats = {'tool': 'teeth', 'profit': 1, 'cash': 0, }
 tool_options = { "Rusty Scissors": 5, "Old-Timey Push Lawnmower": 50, "Fancy Battery-Powered Lawnmower": 100, "Team of Starving Students": 250 }
 tool_cost = { "Rusty Scissors": 5, "Old-Timey Push Lawnmower": 25, "Fancy Battery-Powered Lawnmower": 250, "Team of Starving Students": 500 }
 
+def mow():
+    user_stats["cash"] += user_stats["profit"]
+    print("You have mowed with " + user_stats["tool"] + " and made $" + str(user_stats["profit"]) + ". You now have a total of $" + str(user_stats["cash"]) )
 
-
+mow()
+mow()
+mow()
