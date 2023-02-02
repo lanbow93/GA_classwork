@@ -1,7 +1,7 @@
 running = True #Game running flag for while loop
 menu = "Main Menu Selection\n1. Mow Lawn  2. Visit Store  3. View Inventory  4. Restart Game  5. Quit"
 store_menu = "Please select from the following option(s):"
-user_stats = {'tool': 'teeth', 'profit': 1, 'cash': 0, }
+user_stats = {'tool': 'teeth', 'profit': 1, 'cash': 0, "experience": 1}
 tool_options = { "Rusty Scissors": 5, "Old-Timey Push Lawnmower": 50, "Fancy Battery-Powered Lawnmower": 100, "Team of Starving Students": 250 }
 tool_cost = { "Rusty Scissors": 5, "Old-Timey Push Lawnmower": 25, "Fancy Battery-Powered Lawnmower": 250, "Team of Starving Students": 500 }
 
@@ -27,12 +27,11 @@ def shop():
         count += 1
     print(str(count) + "| Cancel")
 
+def shopSelectionValidation(option):
+    if(option.isnumeric() and (int(option) <= len(tool_cost) + 1 or int(option) > 0)):
+        print("Is a number and within ranges")
+    else:
+        print("I do not see the option you listed. Please try again")
+        shopSelectionValidation(input("Enter number selection:\n"))
 
 
-
-
-mow()
-mow()
-print()
-reset()
-mow()
