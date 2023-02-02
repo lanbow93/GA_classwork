@@ -27,25 +27,53 @@ def shop():
     for i in tool_cost:
         print(str(count) + "| $"+ str(tool_cost[i])+ " | " + i)
         count += 1
-    print(str(count) + "| Cancel")
+    print(str(count) + "| Cancel\n")
 
 
 def purchase(option):
-    print("Option:" + str(option))
-    if(option >= user_stats["experience"]):
-        print("You have purchased a " + tool_options[option-1] + " for $" + str(tool_cost[tool_options[option-1]]) )
-    else:
-        print("I don't think you are experienced enough to handle that option. Try a different one.")
+    
+    print("Option: " + str(option))
+    if(option == len(tool_options) + 1):
+        print("Cancel button was pressed")
+        return ""
+
+    tool = tool_options[option-1]
+    if(tool_cost[tool] > user_stats["cash"]):
+        print("I do not think you can afford that option. Please try again.")
+        input("Press enter to continue...")
+        shop()
         shopSelectionValidation(input("Enter number selection:\n"))
+    elif(option < user_stats["experience"]):
+        print("I don't think you are experienced enough to handle that option. Try a different one.")
+        input("Press enter to continue...")
+        shop()
+        shopSelectionValidation(input("Enter number selection:\n"))
+    else:
+        
+        print("You have purchased a " + tool + " for $" + str(tool_cost[tool]) )
+        user_stats["tool"] = tool
+        user_stats["profit"] = tool_profit[tool]
+        
+        tool_cost.pop(tool_options[0])
+        tool_profit.pop(tool_options[0])
+        tool_options.pop(0)
+        ## Only needed when implementing multiple tools
+        # if(user_stats["experience"] == option):
+        #     user_stats["experience"] += 1
 
 def shopSelectionValidation(option):
+    # If option is a number and withing the expected range, attempt to buy
     if(option.isnumeric() and int(option) <= len(tool_options) + 1 and int(option) > 0):
         purchase(int(option))
     else:
+        # Calls on itself to run again due to invalid option
         print("I do not see the option you listed. Please try again")
+        input("Press enter to continue...")
+        shop()
         shopSelectionValidation(input("Enter number selection:\n"))
 
 shopSelectionValidation('8')
-
+shopSelectionValidation('8')
+mow()
 print(user_stats)
 
