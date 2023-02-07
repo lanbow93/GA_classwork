@@ -3,6 +3,7 @@ user_stats = {'tool': 'Teeth', 'profit': 1, 'cash': 0, "experience": 1}
 tool_options = ["Rusty Scissors", "Old-Timey Push Lawnmower", "Fancy Battery-Powered Lawnmower", "Team of Starving Students"]
 tool_profit = { "Rusty Scissors": 5, "Old-Timey Push Lawnmower": 50, "Fancy Battery-Powered Lawnmower": 100, "Team of Starving Students": 250 }
 tool_cost = { "Rusty Scissors": 5, "Old-Timey Push Lawnmower": 25, "Fancy Battery-Powered Lawnmower": 250, "Team of Starving Students": 500 }
+goal = 100
 
 def reset():
     global user_stats
@@ -17,11 +18,21 @@ def reset():
     input("Press enter to continue...\n")
     main_menu()
 
+def victory():
+    choice = input("Congratulations you have won! Would you like to play again? (Y/N)\n")
+    if(choice == "Y" or "y"):
+        reset()
+    else:
+        exit
+
 def mow():
     user_stats["cash"] += user_stats["profit"]
     print("You have mowed with " + user_stats["tool"] + " and made $" + str(user_stats["profit"]) + ". You now have a total of $" + str(user_stats["cash"]) )
     input("Press enter to continue...\n")
-    main_menu()
+    if(user_stats["cash"] >= goal):
+        victory()
+    else:   
+        main_menu()
 
 def shop():
     print("Please select from the following option(s):")
@@ -41,7 +52,7 @@ def purchase(option):
         print("I do not think you can afford that option. Please try again.")
         input("Press enter to continue...\n")
         shop()
-    elif(option < user_stats["experience"]):
+    elif(option > 1):
         print("I don't think you are experienced enough to handle that option. Try a different one.")
         input("Press enter to continue...\n")
         shop()
@@ -86,13 +97,10 @@ def main_menu():
     elif(selected_option == "4"):
         reset()
     elif(selected_option == "5"):
-        pass
+        exit
     else:
         print(">.> That is not a choice......at all")
         input("Press enter to continue...\n")
         main_menu()
 
 main_menu()
-
-
-
