@@ -1,9 +1,8 @@
-running = True #Game running flag for while loop
 user_stats = {'tool': 'Teeth', 'profit': 1, 'cash': 0, "experience": 1}
 tool_options = ["Rusty Scissors", "Old-Timey Push Lawnmower", "Fancy Battery-Powered Lawnmower", "Team of Starving Students"]
 tool_profit = { "Rusty Scissors": 5, "Old-Timey Push Lawnmower": 50, "Fancy Battery-Powered Lawnmower": 100, "Team of Starving Students": 250 }
 tool_cost = { "Rusty Scissors": 5, "Old-Timey Push Lawnmower": 25, "Fancy Battery-Powered Lawnmower": 250, "Team of Starving Students": 500 }
-goal = 100
+goal = 1000
 
 def reset():
     global user_stats
